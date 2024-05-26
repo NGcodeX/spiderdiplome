@@ -1,5 +1,5 @@
 # Student Registration Portal
-
+![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/preview-images/dfd.PNG?raw=true)
 # Introduction
 Welcome to our Student Registration Portal project! This document serves as a guide to understanding the project's goals, features, and development methodology.
 
@@ -22,6 +22,9 @@ Our team has adopted an Agile approach with Scrum methodology for this project. 
 4. **Sprint Planning:** At the beginning of each sprint, we conduct sprint planning sessions to select the work to be completed and define the sprint goal.
 5. **Sprint Review and Retrospective:** At the end of each sprint, we hold a review meeting to demonstrate the completed work to stakeholders and gather feedback. We also conduct a retrospective to reflect on our process and identify areas for improvement.
 
+
+### Test with Jmeter
+![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/preview-images/gggg.PNG?raw=true)
 ## Getting Started
 To get started with the Student Registration Portal, follow these steps:
 1. Clone the project repository.

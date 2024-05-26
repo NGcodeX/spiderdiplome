@@ -1,5 +1,13 @@
 # Student Registration Portal
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/preview-images/dfd.PNG?raw=true)
+
+## Groupe members:
+| Name | Post | Details |
+| - | - | - |
+| Tang Fanta Lateefah | Scrum Master | I m in charg |
+| Zebs Haupur | Java Developer | I m in charg |
+| | | |
+| | | |
 # Introduction
 Welcome to our Student Registration Portal project! This document serves as a guide to understanding the project's goals, features, and development methodology.
 

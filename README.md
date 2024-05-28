@@ -12,9 +12,7 @@
 | View| COntroller| Model |
 | - | - | - |
 | (JSP) | (Servlets)|  (JPA) |
-| | | |
-| | | |
-| | | |
+|User Input (HTML/CSS/JS)| HTTP Requests and Responses |Database (MySQL) |
 
         
         |   View   | <----> | Controller| <----> |   Model  |

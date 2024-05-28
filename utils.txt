@@ -1,0 +1,1 @@
+id, username, mot_de_passe, nom, prenom, code_postal, phone, city, country, description, login_status, role, email

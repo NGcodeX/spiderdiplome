@@ -8,6 +8,17 @@
 | Zebs Haupur | Java Developer | I m in charge |
 | | | |
 | | | |
+
+        +----------+        +-----------+        +----------+
+        |   View   | <----> | Controller| <----> |   Model  |
+        | (JSP)    |        | (Servlets)|        |   (JPA)  |
+        +----------+        +-----------+        +----------+
+            ^                   |                    |
+            |                   v                    v
+       User Input          HTTP Requests        Database (MySQL)
+      (HTML/CSS/JS)        and Responses
+```
+
 # Introduction
 Welcome to our Student Registration Portal project! This document serves as a guide to understanding the project's goals, features, and development methodology.
 

@@ -4,8 +4,8 @@
 ## Groupe members:
 | Name | Post | Details |
 | - | - | - |
-| Tang Fanta Lateefah | Scrum Master | I m in charg |
-| Zebs Haupur | Java Developer | I m in charg |
+| Tang Fanta Lateefah | Scrum Master | I m in charge |
+| Zebs Haupur | Java Developer | I m in charge |
 | | | |
 | | | |
 # Introduction

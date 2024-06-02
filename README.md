@@ -1,1 +1,2 @@
-# CINDY FRONTEND VIEWS
+# LandinG Page of Spider Diplome
+ 

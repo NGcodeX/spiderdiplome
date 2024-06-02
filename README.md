@@ -8,8 +8,8 @@
 | Student | Name | Post | Details |
 | -| - | - | - |
 | <img src="https://avatars.githubusercontent.com/u/71899547?v=4" alt="" width="100" height="100"> | Fanta Lateefah | Scrum Master | I m in charge |
-|  | paguem belinda |security manager |I am in charge |
-|  |Mbwa madian | Tester|I am in charge |
+| <img src="https://avatars.githubusercontent.com/u/170107001?v=4" alt="" width="100" height="100"> | paguem belinda |security manager |I am in charge |
+| <img src="https://avatars.githubusercontent.com/u/167518864?v=4" alt="" width="100" height="100"> |Mbwa madian | Tester|I am in charge |
 | <img src="https://avatars.githubusercontent.com/u/153538511?v=4" alt="" width="100" height="100"> | cindy melo | front end developer| I am in charge |
 | <img src="https://avatars.githubusercontent.com/u/120027323?v=4" alt="" width="100" height="100"> | Zebs Haupur | Java Developer | I m in charge |
 

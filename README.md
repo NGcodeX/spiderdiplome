@@ -3,19 +3,18 @@
   ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/javaee.png?raw=true)
 </div>
 
-## View the [Scrum Board here](https://github.com/orgs/NGcodeX/projects/8/views/1)
-# Student Registration Portal
-![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/9.PNG?raw=true)
-
-## Groupe members:
+## Groupe members Goupe 9 OOA:
 | Name | Post | Details |
 | - | - | - |
-| Tang Fanta Lateefah | Scrum Master | I m in charge |
+| Fanta Lateefah | Scrum Master | I m in charge |
 | Zebs Haupur | Java Developer | I m in charge |
 | paguem belinda |security manager |I am in charge |
 |Mbwa madian | Tester|I am in charge |
 | cindy melo | front end developer| I am in charge |
 
+## View the [Scrum Board here](https://github.com/orgs/NGcodeX/projects/8/views/1)
+# Student Registration Portal
+![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/9.PNG?raw=true)
 
 # Introduction
 Welcome to our Student Registration Portal project! This document serves as a guide to understanding the project's goals, features, and development methodology.

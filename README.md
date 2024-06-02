@@ -4,13 +4,13 @@
 </div>
 
 ## Groupe members Goupe 9 OOA:
-| Name | Post | Details |
-| - | - | - |
-| Fanta Lateefah | Scrum Master | I m in charge |
-| Zebs Haupur | Java Developer | I m in charge |
-| paguem belinda |security manager |I am in charge |
-|Mbwa madian | Tester|I am in charge |
-| cindy melo | front end developer| I am in charge |
+| Student | Name | Post | Details |
+| -| - | - | - |
+| <img src="https://avatars.githubusercontent.com/u/71899547?v=4" alt="" width="100" height="100"> | Fanta Lateefah | Scrum Master | I m in charge |
+|  | paguem belinda |security manager |I am in charge |
+|  |Mbwa madian | Tester|I am in charge |
+| <img src="https://avatars.githubusercontent.com/u/153538511?v=4" alt="" width="100" height="100"> | cindy melo | front end developer| I am in charge |
+| <img src="https://avatars.githubusercontent.com/u/120027323?v=4" alt="" width="100" height="100"> | Zebs Haupur | Java Developer | I m in charge |
 
 ## View the [Scrum Board here](https://github.com/orgs/NGcodeX/projects/8/views/1)
 # Student Registration Portal

@@ -3,8 +3,9 @@
   ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/javaee.png?raw=true)
 </div>
 
-## Groupe members Goupe 9 OOA:
+## Groupe members Goupe-9 OOA:
 ## View the [Scrum Board here](https://github.com/orgs/NGcodeX/projects/8/views/1)
+# project is managed by STUDENT:
 | Student | Name | Post | Details |
 | -| - | - | - |
 | <img src="https://avatars.githubusercontent.com/u/71899547?v=4" alt="" width="100" height="100"> | Fanta Lateefah | Scrum Master | I m in charge |

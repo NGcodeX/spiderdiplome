@@ -20,6 +20,7 @@ The Student Registration Portal is designed to streamline the student registrati
 
 # Agile Approach and Scrum Methodology
 Our team has adopted an Agile approach with Scrum methodology for this project. Agile emphasizes iterative development, collaboration, and flexibility, allowing us to respond to changes and deliver value to stakeholders continuously. Scrum is a framework within Agile that organizes work into short iterations called sprints, typically lasting 2-4 weeks. Here's how we're implementing Agile and Scrum in our project:
+![IMAGE](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/45.PNG?raw=true)
 
 ### Agile Principles:
 1. **Customer Satisfaction:** We prioritize delivering a working product that meets the needs of our users.
@@ -34,6 +35,7 @@ Our team has adopted an Agile approach with Scrum methodology for this project. 
 4. **Sprint Planning:** At the beginning of each sprint, we conduct sprint planning sessions to select the work to be completed and define the sprint goal.
 5. **Sprint Review and Retrospective:** At the end of each sprint, we hold a review meeting to demonstrate the completed work to stakeholders and gather feedback. We also conduct a retrospective to reflect on our process and identify areas for improvement.
 
+![IMAGE](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/10.PNG?raw=true)
 
 ### Test with Jmeter (User Log 1000)
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/gggg.PNG?raw=true)

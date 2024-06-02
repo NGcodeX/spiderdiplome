@@ -4,6 +4,7 @@
 </div>
 
 ## Groupe members Goupe 9 OOA:
+## View the [Scrum Board here](https://github.com/orgs/NGcodeX/projects/8/views/1)
 | Student | Name | Post | Details |
 | -| - | - | - |
 | <img src="https://avatars.githubusercontent.com/u/71899547?v=4" alt="" width="100" height="100"> | Fanta Lateefah | Scrum Master | I m in charge |
@@ -12,7 +13,6 @@
 | <img src="https://avatars.githubusercontent.com/u/153538511?v=4" alt="" width="100" height="100"> | cindy melo | front end developer| I am in charge |
 | <img src="https://avatars.githubusercontent.com/u/120027323?v=4" alt="" width="100" height="100"> | Zebs Haupur | Java Developer | I m in charge |
 
-## View the [Scrum Board here](https://github.com/orgs/NGcodeX/projects/8/views/1)
 # Student Registration Portal
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/9.PNG?raw=true)
 

@@ -18,6 +18,7 @@
 
 # Introduction
 Welcome to our Student Registration Portal project! This document serves as a guide to understanding the project's goals, features, and development methodology.
+The University Student Registration Portal is an innovative web-based platform designed to simplify and streamline the process of university applications for prospective students. This portal aims to provide a user-friendly interface where students can easily register, fill out application forms, upload necessary documents, and track the status of their applications. For university administrators, the portal offers efficient tools to manage and review applications, ensuring a smooth and organized admissions process.
 
 # Project Overview
 The Student Registration Portal is designed to streamline the student registration process for our university. Through this portal, students can register for courses, view their academic records, and manage their personal information.

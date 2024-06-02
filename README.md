@@ -1,3 +1,8 @@
+<div align="center">
+
+  ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/javaee.png?raw=true)
+</div>
+
 ## View the [Scrum Board here](https://github.com/orgs/NGcodeX/projects/8/views/1)
 # Student Registration Portal
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/9.PNG?raw=true)
@@ -39,6 +44,7 @@ Our team has adopted an Agile approach with Scrum methodology for this project. 
 
 ### Test with Jmeter (User Log 1000)
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/gggg.PNG?raw=true)
+![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/fkfk.PNG?raw=true)
 ## Getting Started
 To get started with the Student Registration Portal, follow these steps:
 1. Clone the project repository.
@@ -47,6 +53,10 @@ To get started with the Student Registration Portal, follow these steps:
 
 ## Feedback and Contributions
 We welcome feedback from stakeholders, users, and the development community. If you have any suggestions, feature requests, or bug reports, please submit them via the project's issue tracker. Additionally, contributions are encouraged! If you'd like to contribute code, documentation, or other improvements, please follow the project's contribution guidelines outlined in the `CONTRIBUTING.md` file.
+
+## Security Hashing Algorithme
+![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/55.PNG?raw=true)
+![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/1.PNG?raw=true)
 
 ## License
 This project is licensed under the [MIT License](LICENSE), which allows for free use, modification, and distribution of the software.

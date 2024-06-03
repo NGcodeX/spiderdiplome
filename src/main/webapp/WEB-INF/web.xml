@@ -8,7 +8,15 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <!-- Repeat the above security-role block for each role -->
+    <servlet>
+        <servlet-name>API Utilisateur spider</servlet-name>
+        <servlet-class>com.spiderdiplome.controllers.api.UtilisateurAPIServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>API Utilisateur spider</servlet-name>
+        <url-pattern>/api/v1/utilisateurs/*</url-pattern>
+    </servlet-mapping>
 
     <error-page>
         <error-code>404</error-code>

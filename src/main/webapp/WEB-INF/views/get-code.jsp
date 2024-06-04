@@ -108,7 +108,9 @@
 
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LfSq58pAAAAAObMVWDelR-tYw-U5ImOmKRM51Ou"></div>
+                        </div>
                         <div class="panel-footer" style="text-align: center;">
                             <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i> Envoyer</button>
                         </div>

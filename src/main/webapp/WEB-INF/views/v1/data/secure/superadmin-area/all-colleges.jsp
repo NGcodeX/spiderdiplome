@@ -280,9 +280,9 @@
 				<div class="main-menu">
 					<ul>
 						<li class="active">
-							<a href="dashboard.jsp">
+							<a href="tableau-de-bord">
 								<span class="menu-icon">
-									<i class="fa fa-dashboard fa-lg"></i> 
+									<i class="fa fa-dashboard fa-lg"></i>
 								</span>
 								<span class="text">
 									Tableau de Bord
@@ -291,9 +291,9 @@
 							</a>
 						</li>
 						<li class="active">
-							<a href="all-users.jsp">
+							<a href="gestions-utilisateurs">
 								<span class="menu-icon">
-									<i class="fa fa-user fa-lg"></i> 
+									<i class="fa fa-user fa-lg"></i>
 								</span>
 								<span class="text">
 									Utilisateurs
@@ -302,9 +302,9 @@
 							</a>
 						</li>
 						<li class="active">
-							<a href="all-colleges.html">
+							<a href="gestions-universites">
 								<span class="menu-icon">
-									<i class="fa fa-building-o fa-lg"></i> 
+									<i class="fa fa-building-o fa-lg"></i>
 								</span>
 								<span class="text">
 									Universities
@@ -386,12 +386,12 @@
 	<!-- Logout confirmation -->
 	<div class="custom-popup width-100" id="logoutConfirm">
 		<div class="padding-md">
-			<h4 class="m-top-none"> Do you want to logout?</h4>
+			<h4 class="m-top-none"> Voulez vous vous deconncter de Spider Diplome??</h4>
 		</div>
 
 		<div class="text-center">
-			<a class="btn btn-success m-right-sm" href="index.html">Logout</a>
-			<a class="btn btn-danger logoutConfirm_close">Cancel</a>
+			<a class="btn btn-success m-right-sm" href="deconnexion">deconnexion</a>
+			<a class="btn btn-danger logoutConfirm_close">Non Rester</a>
 		</div>
 	</div>
 	

@@ -9,10 +9,18 @@
     </welcome-file-list>
 
     <servlet>
+        <servlet-name>API de Paiement</servlet-name>
+        <servlet-class>com.spiderdiplome.controllers.api.PaiementAPIServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>API de Paiement</servlet-name>
+        <url-pattern>/api/v1/paiements/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>API Utilisateur spider</servlet-name>
         <servlet-class>com.spiderdiplome.controllers.api.UtilisateurAPIServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>API Utilisateur spider</servlet-name>
         <url-pattern>/api/v1/utilisateurs/*</url-pattern>

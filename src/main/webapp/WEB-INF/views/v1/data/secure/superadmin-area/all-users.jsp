@@ -314,7 +314,7 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="all-colleges.jsp">
+                        <a href="gestions-universites">
 								<span class="menu-icon">
 									<i class="fa fa-building-o fa-lg"></i> 
 								</span>

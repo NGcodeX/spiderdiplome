@@ -258,6 +258,48 @@ public Utilisateur findByMatricule(String matricule) {
     return utilisateur;
 }
 
+@Override
+public Utilisateur findByEmailOrPhoneOrMatricule(String emailOrPhoneOrMatricule) {
+    String sql = "SELECT * FROM utilisateurs WHERE email = ? OR phone = ? OR matricule = ?";
+    Utilisateur utilisateur = null;
+
+    try (Connection connection = DatabaseConnection.getConnection();
+         PreparedStatement statement = connection.prepareStatement(sql)) {
+
+        statement.setString(1, emailOrPhoneOrMatricule);
+        statement.setString(2, emailOrPhoneOrMatricule);
+        statement.setString(3, emailOrPhoneOrMatricule);
+        ResultSet resultSet = statement.executeQuery();
+
+        if (resultSet.next()) {
+            utilisateur = new Utilisateur();
+            utilisateur.setId(resultSet.getInt("id"));
+            utilisateur.setNom(resultSet.getString("nom"));
+            utilisateur.setPrenom(resultSet.getString("prenom"));
+            utilisateur.setEmail(resultSet.getString("email"));
+            utilisateur.setPhone(resultSet.getString("phone"));
+            utilisateur.setMatricule(resultSet.getString("matricule"));
+            utilisateur.setMotDePasse(resultSet.getString("motdepasse"));
+            utilisateur.setRole(resultSet.getString("role"));
+            utilisateur.setDateInscription(resultSet.getTimestamp("dateinscription"));
+            utilisateur.setStatut(resultSet.getInt("statut"));
+            utilisateur.setDateCreation(resultSet.getTimestamp("datecreation"));
+            utilisateur.setDerniereConnexion(resultSet.getTimestamp("derniereconnexion"));
+            utilisateur.setDateModification(resultSet.getTimestamp("datemodification"));
+            utilisateur.setDateNaissance(resultSet.getDate("datenaissance"));
+            utilisateur.setGenre(resultSet.getString("genre"));
+            utilisateur.setPhotoProfil(resultSet.getString("photoprofil"));
+            utilisateur.setBio(resultSet.getString("bio"));
+            utilisateur.setAdresse(resultSet.getString("adresse"));
+            utilisateur.setSalt(resultSet.getString("salt"));
+        }
+    } catch (SQLException e) {
+        System.err.println("Erreur lors de la recherche de l'utilisateur par email, téléphone ou matricule : " + e.getMessage());
+    }
+
+    return utilisateur;
+}
+
     @Override
     public Utilisateur findByPhone(String phone) {
         Utilisateur utilisateur = null;

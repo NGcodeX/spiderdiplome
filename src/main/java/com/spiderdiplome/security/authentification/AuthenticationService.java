@@ -107,6 +107,7 @@ public class AuthenticationService {
             newUser.setPrenom(lastname);
             newUser.setEmail(email);
             newUser.setPhone("237"+email);
+            newUser.setStatut(1);
             newUser.setMotDePasse(hashedPassword);
             newUser.setSalt(salt);
         }

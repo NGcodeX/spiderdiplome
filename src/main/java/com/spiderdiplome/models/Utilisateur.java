@@ -3,52 +3,48 @@ package com.spiderdiplome.models;
 import java.sql.Timestamp;
 import java.util.Date;
 
-
 public class Utilisateur {
 
     private int id;
     private String Nom;
-
     private String prenom;
-
     private String email;
-
     private String phone;
-
     private String matricule;
-
     private String motDePasse;
-
     private String role;
-
     private Timestamp dateInscription;
-
     private int statut;
-
     private Timestamp dateCreation;
-
     private Timestamp derniereConnexion;
-
     private Timestamp dateModification;
-
     private Date dateNaissance;
-
     private String genre;
-
     private String photoProfil;
-
     private String bio;
-
     private String adresse;
-
     private String salt;
+    private String lastLoginIP;
+    private int failedLoginAttempts;
+    private boolean accountLocked;
+    private String resetPasswordToken;
+    private Timestamp resetPasswordExpiry;
+    private boolean twoFactorEnabled;
+    private String twoFactorSecret;
 
     public Utilisateur() {
     }
 
-    public Utilisateur(int id, String nom, String prenom, String email, String phone, String matricule, String motDePasse, String role, Timestamp dateInscription, int statut, Timestamp dateCreation, Timestamp derniereConnexion, Timestamp dateModification, Date dateNaissance, String genre, String photoProfil, String bio, String adresse, String salt) {
-        this.id = id;
-        this.Nom = nom;
+    public Utilisateur(String nom, String prenom, String phone, String motDePasse, String salt) {
+        Nom = nom;
+        this.prenom = prenom;
+        this.phone = phone;
+        this.motDePasse = motDePasse;
+        this.salt = salt;
+    }
+
+    public Utilisateur(String nom, String prenom, String email, String phone, String matricule, String motDePasse, String role, Timestamp dateInscription, int statut, Timestamp dateCreation, Timestamp derniereConnexion, Timestamp dateModification, Date dateNaissance, String genre, String photoProfil, String bio, String adresse, String salt, String lastLoginIP, int failedLoginAttempts, boolean accountLocked, String resetPasswordToken, Timestamp resetPasswordExpiry, boolean twoFactorEnabled, String twoFactorSecret) {
+        Nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.phone = phone;
@@ -66,17 +62,14 @@ public class Utilisateur {
         this.bio = bio;
         this.adresse = adresse;
         this.salt = salt;
+        this.lastLoginIP = lastLoginIP;
+        this.failedLoginAttempts = failedLoginAttempts;
+        this.accountLocked = accountLocked;
+        this.resetPasswordToken = resetPasswordToken;
+        this.resetPasswordExpiry = resetPasswordExpiry;
+        this.twoFactorEnabled = twoFactorEnabled;
+        this.twoFactorSecret = twoFactorSecret;
     }
-
-
-    public Utilisateur(String nom, String prenom, String phone, String motDePasse, String salt) {
-        this.Nom = nom;
-        this.prenom = prenom;
-        this.phone = phone;
-        this.motDePasse = motDePasse;
-        this.salt = salt;
-    }
-
 
     public int getId() {
         return id;
@@ -91,7 +84,7 @@ public class Utilisateur {
     }
 
     public void setNom(String nom) {
-        this.Nom = nom;
+        Nom = nom;
     }
 
     public String getPrenom() {
@@ -228,5 +221,61 @@ public class Utilisateur {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    public String getLastLoginIP() {
+        return lastLoginIP;
+    }
+
+    public void setLastLoginIP(String lastLoginIP) {
+        this.lastLoginIP = lastLoginIP;
+    }
+
+    public int getFailedLoginAttempts() {
+        return failedLoginAttempts;
+    }
+
+    public void setFailedLoginAttempts(int failedLoginAttempts) {
+        this.failedLoginAttempts = failedLoginAttempts;
+    }
+
+    public boolean isAccountLocked() {
+        return accountLocked;
+    }
+
+    public void setAccountLocked(boolean accountLocked) {
+        this.accountLocked = accountLocked;
+    }
+
+    public String getResetPasswordToken() {
+        return resetPasswordToken;
+    }
+
+    public void setResetPasswordToken(String resetPasswordToken) {
+        this.resetPasswordToken = resetPasswordToken;
+    }
+
+    public Timestamp getResetPasswordExpiry() {
+        return resetPasswordExpiry;
+    }
+
+    public void setResetPasswordExpiry(Timestamp resetPasswordExpiry) {
+        this.resetPasswordExpiry = resetPasswordExpiry;
+    }
+
+    public boolean isTwoFactorEnabled() {
+        return twoFactorEnabled;
+    }
+
+    public void setTwoFactorEnabled(boolean twoFactorEnabled) {
+        this.twoFactorEnabled = twoFactorEnabled;
+    }
+
+    public String getTwoFactorSecret() {
+        return twoFactorSecret;
+    }
+
+    public void setTwoFactorSecret(String twoFactorSecret) {
+        this.twoFactorSecret = twoFactorSecret;
     }
 }

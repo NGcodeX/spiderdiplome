@@ -294,7 +294,7 @@
 						</a>
 					</li>
 					<li class="active">
-						<a href="#" class="menu-link" data-page="all-colleges">
+						<a href="gestions-universites" class="menu-link" data-page="all-colleges">
 								<span class="menu-icon">
 									<i class="fa fa-building-o fa-lg"></i>
 								</span>
@@ -348,11 +348,11 @@
 					</span>
 					<span class="text">Nouveau Candidat</span>
 				</a>
-				<a href="#" class="shortcut-link">
+				<a href="gestions-universites" class="shortcut-link">
 					<span class="shortcut-icon">
 						<i class="fa fa-building-o"></i>
 					</span>
-					<span class="text">Nouvel Université</span>
+					<span class="text">Université</span>
 				</a>
 				<a href="#" class="shortcut-link">
 					<span class="shortcut-icon">

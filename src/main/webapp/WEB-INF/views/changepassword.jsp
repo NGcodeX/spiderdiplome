@@ -71,6 +71,7 @@
 
                 <!-- Spider-Diplome mise en contexe de l utilisateur sur la memorisation du nouveau mot de passe -->
                 <div class="panel-body">
+                    ${errorIdentifiantforgot}
                     <h4 class="headline">
                         NOUVEAU MOT DE PASSE <i class="fa fa-database fa-lg"></i>
                         <span class="line"></span>
@@ -80,41 +81,55 @@
                             Veuillez vous assurer que vous connaissez et mémorisez <i class="fa fa-info-circle"></i> le
                             mot de passe.
                             si vous avez besoin d'aide, contactez password.
-                            <a href="login" class="primary-font login-link"> Minesec Support</a>
+                            <a href="login" class="primary-font login-link"> Spider-Support</a>
                         </div>
                     </div>
-                    <h5>
-                        <div class="form-group">
-                            <span class="label label-danger">
-                                <c:out value="${errorpasss}" />
-                            </span>
-                        </div>
-                    </h5>
 
                     <!-- Spider-Diplome Formulaire de modification du mot de passe ( nouveau mot de passe) -->
-                    <form class="form-login" method="post" action="change-password">
+                    <form class="form-login" method="post" action="changement-mot-passe">
                         <div class="form-group">
                             <label><i class="fa fa-graduation-cap fa-lg"></i> Votre matricule est:</label>
-                            <input disabled type="text" name="matricule" placeholder="CM-XXX-XXX-XXX"
+                            <input disabled type="text" name="matricule" placeholder="${identifiant}"
                                 class="form-control input-sm bounceIn animation-delay2">
                         </div>
                         <div class="form-group">
                             <label><i class="fa fa-graduation-cap fa-lg"></i> Nom d'utilisateur du compte</label>
-                            <input disabled type="text" name="username" placeholder="NGUENA ZEBS"
+                            <input disabled type="text" name="username" placeholder="${nom} ${prenom}"
                                 class="form-control input-sm bounceIn animation-delay4">
                         </div>
-                        <div class="form-group">
-                            <label><i class="fa fa-key fa-lg"></i>New Password <span class="label label-danger">
-                                </span></label>
-                            <input type="password" name="newpassword" placeholder="Nouveau mot de passe"
-                                class="form-control input-sm bounceIn animation-delay6" required>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Password</label>
+                                    <input type="password" name="password" placeholder="Password"
+                                           class="form-control input-sm" id="password"
+                                           data-required="true" data-minlength="8" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Confirm Password</label>
+                                    <input type="password" name="confpassword" required
+                                           placeholder="Confirm Password" class="form-control input-sm"
+                                           data-equalto="#password" data-required="true">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label><i class="fa fa-key fa-lg"></i>Confirm Password <span class="label label-danger">
-                                </span></label>
-                            <input type="password" name="confpassword" placeholder="************"
-                                class="form-control input-sm bounceIn animation-delay8" required>
-                        </div>
+
+                        <script>
+                            document.querySelector('form').addEventListener('submit', function (e) {
+                                var password = document.querySelector('input[name="password"]');
+                                var confirmPassword = document.querySelector('input[name="confpassword"]');
+
+                                if (password.value.length < 8) {
+                                    alert('Le mot de passe doit comporter au moins 8 caractères');
+                                    e.preventDefault(); // Empêche la soumission du formulaire
+                                } else if (password.value !== confirmPassword.value) {
+                                    alert('Les mots de passe ne correspondent pas');
+                                    e.preventDefault(); // Empêche la soumission du formulaire
+                                }
+                            });
+                        </script>
                         <div class="g-recaptcha" data-sitekey="6LfSq58pAAAAAObMVWDelR-tYw-U5ImOmKRM51Ou"></div>
                         <br>
                         <div class="panel-footer" style="text-align: center;">

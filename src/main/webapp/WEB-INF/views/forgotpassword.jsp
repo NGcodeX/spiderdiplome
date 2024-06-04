@@ -76,8 +76,10 @@
 
 				<!-- Spider-Diplome mise en contexe de l utilisateur sur les tentatives -->
 				<div class="panel-body">
+					${errorIdentifiantforgot}
+					${successforgot}
 					<h4 class="headline">
-						Recherche par Matricule ou numero   <i class="fa fa-database fa-lg"></i>
+						Recherche par Matricule, numero ou email   <i class="fa fa-database fa-lg"></i>
 						<span class="line"></span>
 					</h4>
 					<div class="form-group">
@@ -85,18 +87,21 @@
 							Pour réinitialiser votre mot de passe, soumettez votre Matricule Scolaire ci-dessous.un code
 							sera envoyé
 							sur le téléphone du parent, avec des instructions sur la façon de
-							avoir à nouveau accès. ou contacter<a href="#" class="primary-font login-link">
-								Minesec Support</a>
+							avoir à nouveau accès. ou contacter<a href="section-support" class="primary-font login-link">
+								Spider-Support</a>
 						</div>
 					</div>
 					<!-- /Spider-Diplome -->
 
 					<!-- Spider-Diplome Formulaire de recherche de matricule -->
-					<form class="form-login" method="post" action="changement-mot-de-passe">
+					<form class="form-login" method="post" action="mot-de-passe-oublie">
 						<div class="form-group">
-							<label><i class="fa fa-dot-circle-o fa-lg"></i> Matricule Candidat</label>
-							<input type="text" name="matricule" placeholder="Matricule"
+							<label><i class="fa fa-dot-circle-o fa-lg"></i> Matricule, Telephone ou Email du candidat</label>
+							<input type="text" name="identifiant" placeholder="votre identifiant de connexion"
 								class="form-control input-sm bounceIn animation-delay2" required>
+						</div>
+						<div class="form-group">
+							<div class="g-recaptcha" data-sitekey="6LfSq58pAAAAAObMVWDelR-tYw-U5ImOmKRM51Ou"></div>
 						</div>
 						<div class="form-group" style="text-align: center;">
 							<button class="btn btn-success btn-sm bounceIn animation-delay6">

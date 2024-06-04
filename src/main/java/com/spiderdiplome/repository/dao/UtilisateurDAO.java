@@ -37,4 +37,5 @@ public interface UtilisateurDAO {
     void updateGenre(String matricule, String newGenre);
     List<Utilisateur> findByAdresse(String adresse);
     void updateAdresse(String matricule, String newAdresse);
+    Utilisateur findByEmailOrPhoneOrMatricule(String emailOrPhoneOrMatricule);
 }

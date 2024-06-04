@@ -139,7 +139,7 @@
 
                     <!-- Captcha -->
                     <div class="form-group">
-                        <div class="g-recaptcha" data-sitekey="VOTRE_CLÉ_SITE_RECAPTCHA"></div>
+                        <div class="g-recaptcha" data-sitekey="6LfSq58pAAAAAObMVWDelR-tYw-U5ImOmKRM51Ou"></div>
                     </div>
                     <!-- /Captcha -->
 

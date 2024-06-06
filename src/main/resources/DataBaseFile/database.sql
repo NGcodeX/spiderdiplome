@@ -69,44 +69,155 @@ VALUES
 (1, 1, 1000.00, 'XAF', NOW(), NOW(), 'MOMO', 'Payement analyse de dossier', 'réussi', 'REF123', 'TRANS123');
 
 
-DROP TABLE IF EXISTS universities;
-SELECT *
-FROM universities;
-CREATE TABLE IF NOT EXISTS universities
+
+CREATE TABLE IF NOT EXISTS Universites
 (
-    id                   INT AUTO_INCREMENT PRIMARY KEY,
-    name                 VARCHAR(100) NOT NULL,
-    location             VARCHAR(255) NOT NULL,
-    description          TEXT,
-    service_admin_email  VARCHAR(100) NOT NULL,
-    date_added           TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
-    statut               TINYINT(1)   DEFAULT 1,
-    logo                 VARCHAR(255) DEFAULT NULL,
-    website              VARCHAR(255) DEFAULT NULL,
-    contact_number       VARCHAR(20)  DEFAULT NULL,
-    courses_offered      TEXT         DEFAULT NULL,
-    application_deadline DATE         DEFAULT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    emplacement VARCHAR(255),
+    description TEXT,
+    date_ajoutee TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    statut ENUM('active', 'inactive'),
+    logo VARCHAR(255),
+    site_web VARCHAR(255),
+    numero_contact VARCHAR(20),
+    email_contact VARCHAR(100),
+    adresse_postale VARCHAR(255),
+    cours_offerts TEXT,
+    date_limite_application DATE,
+    frais_scolarite DECIMAL(10, 2),
+    nombre_etudiants INT,
+    nombre_professeurs INT,
+    classement_universite INT,
+    type_universite ENUM('public', 'prive'),
+    accreditations TEXT,
+    programmes_offerts TEXT,
+    bourses_disponibles TEXT,
+    installations TEXT,
+    partenariats_internationaux TEXT,
+    taux_acceptation DECIMAL(5, 2),
+    taux_diplomation DECIMAL(5, 2),
+    taux_emploi DECIMAL(5, 2)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+INSERT INTO Universites
+(nom, emplacement, description, statut, logo, site_web, numero_contact, email_contact, adresse_postale, cours_offerts, date_limite_application, frais_scolarite, nombre_etudiants, nombre_professeurs, classement_universite, type_universite, accreditations, programmes_offerts, bourses_disponibles, installations, partenariats_internationaux, taux_acceptation, taux_diplomation, taux_emploi)
+VALUES
+('ICT University USA', 'Dispensaire Messassi', 'Une université de test pour démonstration.', 'active', 'logo_url', 'ictuniversity.org', '+237685456847', 'contact@ictuniversity.org', '237 yde cameroun', 'C++, Java, python', '2023-12-31', 1000.00, 10000, 1000, 100, 'public', 'Accréditation de test', 'Programme de test', 'Bourse de test', 'Installations de test', 'Partenariats de test', 0.80, 0.90, 0.95);
+
+
+CREATE TABLE IF NOT EXISTS Candidatures
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    utilisateurId INT,
+    universiteId INT,
+    dateSoumission TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    statut ENUM('en attente', 'accepte', 'rejete'),
+    dateExamen DATE,
+    scoreExamen DECIMAL(5, 2),
+    dateEntretien DATE,
+    scoreEntretien DECIMAL(5, 2),
+    dateDecisionFinale DATE,
+    decisionFinale ENUM('accepte', 'rejete', 'liste attente'),
+    commentaire TEXT,
+    fraisApplication DECIMAL(10, 2),
+    aPayer BOOLEAN DEFAULT FALSE,
+    aPayerAvant DATE,
+    aPayerMontant DECIMAL(10, 2),
+    aPayerMethode ENUM('carte de credit', 'virement bancaire', 'paypal', 'MTN money', 'ORANGE money', 'autre'),
+    aPayerStatut ENUM('non paye', 'paye'),
+    aPayerDate TIMESTAMP,
+    aPayerTransactionId VARCHAR(255),
+    FOREIGN KEY (utilisateurId) REFERENCES Utilisateurs(id),
+    FOREIGN KEY (universiteId) REFERENCES Universites(id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+INSERT INTO Candidatures
+(utilisateurId, universiteId, statut, dateExamen, scoreExamen, dateEntretien, scoreEntretien, dateDecisionFinale, decisionFinale, commentaire, fraisApplication, aPayer, aPayerAvant, aPayerMontant, aPayerMethode, aPayerStatut, aPayerDate, aPayerTransactionId)
+VALUES
+(1, 1, 'en attente', '2023-12-01', 85.00, '2023-12-15', 90.00, '2024-01-01', 'liste attente', 'Candidature en cours de traitement.', 100.00, TRUE, '2024-01-15', 1000.00, 'MTN money', 'non paye', NOW(), 'TRANS123');
+
+
+CREATE TABLE IF NOT EXISTS Documents
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    utilisateurId INT,
+    candidatureId INT,
+    nom VARCHAR(255) NOT NULL,
+    type ENUM('CV', 'Lettre de motivation', 'Relevé de notes', 'Diplôme', 'Autre'),
+    dateSoumission TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    statut ENUM('en attente', 'validé', 'rejeté'),
+    commentaire TEXT,
+    cheminFichier VARCHAR(255) NOT NULL,
+    tailleFichier DECIMAL(10, 2),
+    formatFichier VARCHAR(50),
+    FOREIGN KEY (utilisateurId) REFERENCES Utilisateurs(id),
+    FOREIGN KEY (candidatureId) REFERENCES Candidatures(id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;
 
 
-DROP TABLE IF EXISTS serviceadministratifecole;
-SELECT *
-FROM serviceadministratifecole;
-CREATE TABLE IF NOT EXISTS serviceadministratifecole
+INSERT INTO Documents
+(utilisateurId, candidatureId, nom, type, statut, cheminFichier, tailleFichier, formatFichier)
+VALUES
+(1, 1, 'CV Test', 'CV', 'en attente', '/chemin/vers/le/fichier', 1.00, 'pdf');
+
+
+CREATE TABLE IF NOT EXISTS Notifications
 (
-    id            INT AUTO_INCREMENT PRIMARY KEY,
-    matricule     VARCHAR(20)                 NOT NULL,
-    university_id INT                         NOT NULL,
-    date_added    TIMESTAMP                            DEFAULT CURRENT_TIMESTAMP,
-    status        ENUM ('active', 'inactive') NOT NULL DEFAULT 'active',
-    logo          VARCHAR(255)                         DEFAULT NULL,
-    FOREIGN KEY (matricule) REFERENCES utilisateurs (matricule),
-    FOREIGN KEY (university_id) REFERENCES universities (id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    utilisateurId INT,
+    titre VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    dateEnvoi TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    lu BOOLEAN DEFAULT FALSE,
+    dateLecture TIMESTAMP,
+    type ENUM('info', 'alerte', 'erreur', 'succès'),
+    urlRedirection VARCHAR(255),
+    icone VARCHAR(50),
+    couleurFond VARCHAR(7),
+    couleurTexte VARCHAR(7),
+    FOREIGN KEY (utilisateurId) REFERENCES Utilisateurs(id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;
+
+INSERT INTO Notifications
+(utilisateurId, titre, message, type, urlRedirection, icone, couleurFond, couleurTexte)
+VALUES
+(1, 'Titre de la notification', 'Ceci est un message de notification de test.', 'info', 'www.example.com', 'icone_info', '#FFFFFF', '#000000');
+
+
+CREATE TABLE IF NOT EXISTS HistoriqueConnexion
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    utilisateurId INT,
+    dateConnexion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ip VARCHAR(45),
+    navigateur VARCHAR(255),
+    systemeExploitation VARCHAR(255),
+    pays VARCHAR(50),
+    ville VARCHAR(50),
+    codePostal VARCHAR(10),
+    latitude DECIMAL(9, 6),
+    longitude DECIMAL(9, 6),
+    FOREIGN KEY (utilisateurId) REFERENCES Utilisateurs(id)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+INSERT INTO HistoriqueConnexion
+(utilisateurId, ip, navigateur, systemeExploitation, pays, ville, codePostal, latitude, longitude)
+VALUES
+(1, '192.168.1.1', 'Chrome', 'Windows 10', 'Cameroun', 'Yaoundé', '1000', 3.848, 11.5021);
+
+
+
 
 
 

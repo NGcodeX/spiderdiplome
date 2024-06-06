@@ -13,8 +13,12 @@ import java.util.Date;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
+/**
+ * This class provides methods for generating and verifying authentication tokens.
+ */
 public class AuthTokenGenerator {
     private static final String SECRET_KEY = generateSecretKey();
+
 
     private static String generateSecretKey() {
         try {

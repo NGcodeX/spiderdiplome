@@ -1023,7 +1023,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="297" parent="1" name="spider_diplome">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-06-04.17:11:09</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-06-06.21:08:10</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="298" parent="1" name="sys">
@@ -1052,272 +1052,738 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="304" parent="297" name="paiement">
+    <table id="304" parent="297" name="candidatures">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="305" parent="297" name="utilisateurs">
+    <table id="305" parent="297" name="documents">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <column id="306" parent="304" name="id">
+    <table id="306" parent="297" name="historiqueconnexion">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="307" parent="297" name="notifications">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="308" parent="297" name="paiement">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="309" parent="297" name="universites">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="310" parent="297" name="utilisateurs">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <column id="311" parent="304" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="307" parent="304" name="utilisateurId">
+    <column id="312" parent="304" name="utilisateurId">
       <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="308" parent="304" name="payerId">
+    <column id="313" parent="304" name="universiteId">
       <DasType>int|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="309" parent="304" name="montant">
-      <DasType>decimal(10,2 digit)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="310" parent="304" name="currency">
-      <DasType>varchar(3)|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <column id="311" parent="304" name="datePaiement">
+    <column id="314" parent="304" name="dateSoumission">
       <DasType>timestamp|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>4</Position>
+    </column>
+    <column id="315" parent="304" name="statut">
+      <DasType>enum(&apos;en attente&apos;, &apos;accepte&apos;, &apos;rejete&apos;)|0e</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="316" parent="304" name="dateExamen">
+      <DasType>date|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="312" parent="304" name="paymentDate">
-      <DasType>date|0s</DasType>
+    <column id="317" parent="304" name="scoreExamen">
+      <DasType>decimal(5,2 digit)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="313" parent="304" name="methodePaiement">
-      <DasType>varchar(50)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="318" parent="304" name="dateEntretien">
+      <DasType>date|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="314" parent="304" name="paymentDetails">
-      <DasType>text|0s</DasType>
+    <column id="319" parent="304" name="scoreEntretien">
+      <DasType>decimal(5,2 digit)|0s</DasType>
       <Position>9</Position>
     </column>
-    <column id="315" parent="304" name="statutPaiement">
-      <DasType>enum(&apos;réussi&apos;, &apos;échoué&apos;, &apos;en attente&apos;)|0e</DasType>
-      <NotNull>1</NotNull>
+    <column id="320" parent="304" name="dateDecisionFinale">
+      <DasType>date|0s</DasType>
       <Position>10</Position>
     </column>
-    <column id="316" parent="304" name="reference">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="321" parent="304" name="decisionFinale">
+      <DasType>enum(&apos;accepte&apos;, &apos;rejete&apos;, &apos;liste attente&apos;)|0e</DasType>
       <Position>11</Position>
     </column>
-    <column id="317" parent="304" name="transactionId">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="322" parent="304" name="commentaire">
+      <DasType>text|0s</DasType>
       <Position>12</Position>
     </column>
-    <foreign-key id="318" parent="304" name="paiement_ibfk_1">
+    <column id="323" parent="304" name="fraisApplication">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>13</Position>
+    </column>
+    <column id="324" parent="304" name="aPayer">
+      <DasType>tinyint(1)|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>14</Position>
+    </column>
+    <column id="325" parent="304" name="aPayerAvant">
+      <DasType>date|0s</DasType>
+      <Position>15</Position>
+    </column>
+    <column id="326" parent="304" name="aPayerMontant">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>16</Position>
+    </column>
+    <column id="327" parent="304" name="aPayerMethode">
+      <DasType>enum(&apos;carte de credit&apos;, &apos;virement bancaire&apos;, &apos;paypal&apos;, &apos;MTN money&apos;, &apos;ORANGE money&apos;, &apos;autre&apos;)|0e</DasType>
+      <Position>17</Position>
+    </column>
+    <column id="328" parent="304" name="aPayerStatut">
+      <DasType>enum(&apos;non paye&apos;, &apos;paye&apos;)|0e</DasType>
+      <Position>18</Position>
+    </column>
+    <column id="329" parent="304" name="aPayerDate">
+      <DasType>timestamp|0s</DasType>
+      <Position>19</Position>
+    </column>
+    <column id="330" parent="304" name="aPayerTransactionId">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>20</Position>
+    </column>
+    <foreign-key id="331" parent="304" name="candidatures_ibfk_1">
       <ColNames>utilisateurId</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>utilisateurs</RefTableName>
     </foreign-key>
-    <foreign-key id="319" parent="304" name="paiement_ibfk_2">
-      <ColNames>payerId</ColNames>
+    <foreign-key id="332" parent="304" name="candidatures_ibfk_2">
+      <ColNames>universiteId</ColNames>
       <RefColNames>id</RefColNames>
-      <RefTableName>utilisateurs</RefTableName>
+      <RefTableName>universites</RefTableName>
     </foreign-key>
-    <index id="320" parent="304" name="PRIMARY">
+    <index id="333" parent="304" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="321" parent="304" name="utilisateurId">
+    <index id="334" parent="304" name="utilisateurId">
       <ColNames>utilisateurId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="322" parent="304" name="payerId">
-      <ColNames>payerId</ColNames>
+    <index id="335" parent="304" name="universiteId">
+      <ColNames>universiteId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="323" parent="304" name="PRIMARY">
+    <key id="336" parent="304" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="324" parent="305" name="id">
+    <column id="337" parent="305" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="325" parent="305" name="Nom">
-      <DasType>varchar(50)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="338" parent="305" name="utilisateurId">
+      <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="326" parent="305" name="prenom">
-      <DasType>varchar(50)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="339" parent="305" name="candidatureId">
+      <DasType>int|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="327" parent="305" name="email">
-      <DasType>varchar(100)|0s</DasType>
+    <column id="340" parent="305" name="nom">
+      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="328" parent="305" name="phone">
-      <DasType>varchar(100)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="341" parent="305" name="type">
+      <DasType>enum(&apos;CV&apos;, &apos;Lettre de motivation&apos;, &apos;Relevé de notes&apos;, &apos;Diplôme&apos;, &apos;Autre&apos;)|0e</DasType>
       <Position>5</Position>
     </column>
-    <column id="329" parent="305" name="matricule">
-      <DasType>varchar(50)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="342" parent="305" name="dateSoumission">
+      <DasType>timestamp|0s</DasType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>6</Position>
     </column>
-    <column id="330" parent="305" name="motDePasse">
-      <DasType>varchar(100)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="343" parent="305" name="statut">
+      <DasType>enum(&apos;en attente&apos;, &apos;validé&apos;, &apos;rejeté&apos;)|0e</DasType>
       <Position>7</Position>
     </column>
-    <column id="331" parent="305" name="role">
-      <DasType>enum(&apos;candidat&apos;, &apos;autoritesignataire&apos;, &apos;superadmin&apos;, &apos;administrateur&apos;, &apos;responsablesecurite&apos;, &apos;candidatpotentiel&apos;, &apos;serviceadministratifecole&apos;)|0e</DasType>
-      <DefaultExpression>&apos;candidatpotentiel&apos;</DefaultExpression>
-      <NotNull>1</NotNull>
+    <column id="344" parent="305" name="commentaire">
+      <DasType>text|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="332" parent="305" name="dateInscription">
-      <DasType>timestamp|0s</DasType>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    <column id="345" parent="305" name="cheminFichier">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="333" parent="305" name="statut">
-      <DasType>tinyint(1)|0s</DasType>
-      <DefaultExpression>1</DefaultExpression>
-      <NotNull>1</NotNull>
+    <column id="346" parent="305" name="tailleFichier">
+      <DasType>decimal(10,2 digit)|0s</DasType>
       <Position>10</Position>
     </column>
-    <column id="334" parent="305" name="dateCreation">
-      <DasType>timestamp|0s</DasType>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    <column id="347" parent="305" name="formatFichier">
+      <DasType>varchar(50)|0s</DasType>
       <Position>11</Position>
     </column>
-    <column id="335" parent="305" name="derniereConnexion">
-      <DasType>timestamp|0s</DasType>
-      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
-      <Position>12</Position>
-    </column>
-    <column id="336" parent="305" name="dateModification">
-      <DasType>timestamp|0s</DasType>
-      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
-      <Position>13</Position>
-    </column>
-    <column id="337" parent="305" name="dateNaissance">
-      <DasType>date|0s</DasType>
-      <Position>14</Position>
-    </column>
-    <column id="338" parent="305" name="genre">
-      <DasType>enum(&apos;homme&apos;, &apos;femme&apos;, &apos;autre&apos;)|0e</DasType>
-      <DefaultExpression>&apos;autre&apos;</DefaultExpression>
-      <Position>15</Position>
-    </column>
-    <column id="339" parent="305" name="photoProfil">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>16</Position>
-    </column>
-    <column id="340" parent="305" name="bio">
-      <DasType>text|0s</DasType>
-      <Position>17</Position>
-    </column>
-    <column id="341" parent="305" name="adresse">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>18</Position>
-    </column>
-    <column id="342" parent="305" name="salt">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>19</Position>
-    </column>
-    <column id="343" parent="305" name="lastLoginIP">
-      <DasType>varchar(45)|0s</DasType>
-      <Position>20</Position>
-    </column>
-    <column id="344" parent="305" name="failedLoginAttempts">
-      <DasType>int|0s</DasType>
-      <DefaultExpression>0</DefaultExpression>
-      <Position>21</Position>
-    </column>
-    <column id="345" parent="305" name="accountLocked">
-      <DasType>tinyint(1)|0s</DasType>
-      <DefaultExpression>0</DefaultExpression>
-      <Position>22</Position>
-    </column>
-    <column id="346" parent="305" name="resetPasswordToken">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>23</Position>
-    </column>
-    <column id="347" parent="305" name="resetPasswordExpiry">
-      <DasType>timestamp|0s</DasType>
-      <Position>24</Position>
-    </column>
-    <column id="348" parent="305" name="twoFactorEnabled">
-      <DasType>tinyint(1)|0s</DasType>
-      <DefaultExpression>0</DefaultExpression>
-      <Position>25</Position>
-    </column>
-    <column id="349" parent="305" name="twoFactorSecret">
-      <DasType>varchar(255)|0s</DasType>
-      <Position>26</Position>
-    </column>
+    <foreign-key id="348" parent="305" name="documents_ibfk_1">
+      <ColNames>utilisateurId</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>utilisateurs</RefTableName>
+    </foreign-key>
+    <foreign-key id="349" parent="305" name="documents_ibfk_2">
+      <ColNames>candidatureId</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>candidatures</RefTableName>
+    </foreign-key>
     <index id="350" parent="305" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="351" parent="305" name="email">
-      <ColNames>email</ColNames>
+    <index id="351" parent="305" name="utilisateurId">
+      <ColNames>utilisateurId</ColNames>
       <Type>btree</Type>
-      <Unique>1</Unique>
     </index>
-    <index id="352" parent="305" name="phone">
-      <ColNames>phone</ColNames>
+    <index id="352" parent="305" name="candidatureId">
+      <ColNames>candidatureId</ColNames>
       <Type>btree</Type>
-      <Unique>1</Unique>
     </index>
-    <index id="353" parent="305" name="matricule">
-      <ColNames>matricule</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="354" parent="305" name="matricule_2">
-      <ColNames>matricule</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="355" parent="305" name="salt">
-      <ColNames>salt</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="356" parent="305" name="PRIMARY">
+    <key id="353" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="357" parent="305" name="email">
+    <column id="354" parent="306" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="355" parent="306" name="utilisateurId">
+      <DasType>int|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="356" parent="306" name="dateConnexion">
+      <DasType>timestamp|0s</DasType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>3</Position>
+    </column>
+    <column id="357" parent="306" name="ip">
+      <DasType>varchar(45)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="358" parent="306" name="navigateur">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="359" parent="306" name="systemeExploitation">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="360" parent="306" name="pays">
+      <DasType>varchar(50)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="361" parent="306" name="ville">
+      <DasType>varchar(50)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="362" parent="306" name="codePostal">
+      <DasType>varchar(10)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="363" parent="306" name="latitude">
+      <DasType>decimal(9,6 digit)|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="364" parent="306" name="longitude">
+      <DasType>decimal(9,6 digit)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <foreign-key id="365" parent="306" name="historiqueconnexion_ibfk_1">
+      <ColNames>utilisateurId</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>utilisateurs</RefTableName>
+    </foreign-key>
+    <index id="366" parent="306" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="367" parent="306" name="utilisateurId">
+      <ColNames>utilisateurId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="368" parent="306" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="369" parent="307" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="370" parent="307" name="utilisateurId">
+      <DasType>int|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="371" parent="307" name="titre">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="372" parent="307" name="message">
+      <DasType>text|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="373" parent="307" name="dateEnvoi">
+      <DasType>timestamp|0s</DasType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>5</Position>
+    </column>
+    <column id="374" parent="307" name="lu">
+      <DasType>tinyint(1)|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>6</Position>
+    </column>
+    <column id="375" parent="307" name="dateLecture">
+      <DasType>timestamp|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="376" parent="307" name="type">
+      <DasType>enum(&apos;info&apos;, &apos;alerte&apos;, &apos;erreur&apos;, &apos;succès&apos;)|0e</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="377" parent="307" name="urlRedirection">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="378" parent="307" name="icone">
+      <DasType>varchar(50)|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="379" parent="307" name="couleurFond">
+      <DasType>varchar(7)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <column id="380" parent="307" name="couleurTexte">
+      <DasType>varchar(7)|0s</DasType>
+      <Position>12</Position>
+    </column>
+    <foreign-key id="381" parent="307" name="notifications_ibfk_1">
+      <ColNames>utilisateurId</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>utilisateurs</RefTableName>
+    </foreign-key>
+    <index id="382" parent="307" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="383" parent="307" name="utilisateurId">
+      <ColNames>utilisateurId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="384" parent="307" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="385" parent="308" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="386" parent="308" name="utilisateurId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="387" parent="308" name="payerId">
+      <DasType>int|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="388" parent="308" name="montant">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="389" parent="308" name="currency">
+      <DasType>varchar(3)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="390" parent="308" name="datePaiement">
+      <DasType>timestamp|0s</DasType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>6</Position>
+    </column>
+    <column id="391" parent="308" name="paymentDate">
+      <DasType>date|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="392" parent="308" name="methodePaiement">
+      <DasType>varchar(50)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="393" parent="308" name="paymentDetails">
+      <DasType>text|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="394" parent="308" name="statutPaiement">
+      <DasType>enum(&apos;réussi&apos;, &apos;échoué&apos;, &apos;en attente&apos;)|0e</DasType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="395" parent="308" name="reference">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+    </column>
+    <column id="396" parent="308" name="transactionId">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+    </column>
+    <foreign-key id="397" parent="308" name="paiement_ibfk_1">
+      <ColNames>utilisateurId</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>utilisateurs</RefTableName>
+    </foreign-key>
+    <foreign-key id="398" parent="308" name="paiement_ibfk_2">
+      <ColNames>payerId</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>utilisateurs</RefTableName>
+    </foreign-key>
+    <index id="399" parent="308" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="400" parent="308" name="utilisateurId">
+      <ColNames>utilisateurId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="401" parent="308" name="payerId">
+      <ColNames>payerId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="402" parent="308" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="403" parent="309" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="404" parent="309" name="nom">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="405" parent="309" name="emplacement">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="406" parent="309" name="description">
+      <DasType>text|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="407" parent="309" name="date_ajoutee">
+      <DasType>timestamp|0s</DasType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>5</Position>
+    </column>
+    <column id="408" parent="309" name="statut">
+      <DasType>enum(&apos;active&apos;, &apos;inactive&apos;)|0e</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="409" parent="309" name="logo">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="410" parent="309" name="site_web">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="411" parent="309" name="numero_contact">
+      <DasType>varchar(20)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="412" parent="309" name="email_contact">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="413" parent="309" name="adresse_postale">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <column id="414" parent="309" name="cours_offerts">
+      <DasType>text|0s</DasType>
+      <Position>12</Position>
+    </column>
+    <column id="415" parent="309" name="date_limite_application">
+      <DasType>date|0s</DasType>
+      <Position>13</Position>
+    </column>
+    <column id="416" parent="309" name="frais_scolarite">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>14</Position>
+    </column>
+    <column id="417" parent="309" name="nombre_etudiants">
+      <DasType>int|0s</DasType>
+      <Position>15</Position>
+    </column>
+    <column id="418" parent="309" name="nombre_professeurs">
+      <DasType>int|0s</DasType>
+      <Position>16</Position>
+    </column>
+    <column id="419" parent="309" name="classement_universite">
+      <DasType>int|0s</DasType>
+      <Position>17</Position>
+    </column>
+    <column id="420" parent="309" name="type_universite">
+      <DasType>enum(&apos;public&apos;, &apos;prive&apos;)|0e</DasType>
+      <Position>18</Position>
+    </column>
+    <column id="421" parent="309" name="accreditations">
+      <DasType>text|0s</DasType>
+      <Position>19</Position>
+    </column>
+    <column id="422" parent="309" name="programmes_offerts">
+      <DasType>text|0s</DasType>
+      <Position>20</Position>
+    </column>
+    <column id="423" parent="309" name="bourses_disponibles">
+      <DasType>text|0s</DasType>
+      <Position>21</Position>
+    </column>
+    <column id="424" parent="309" name="installations">
+      <DasType>text|0s</DasType>
+      <Position>22</Position>
+    </column>
+    <column id="425" parent="309" name="partenariats_internationaux">
+      <DasType>text|0s</DasType>
+      <Position>23</Position>
+    </column>
+    <column id="426" parent="309" name="taux_acceptation">
+      <DasType>decimal(5,2 digit)|0s</DasType>
+      <Position>24</Position>
+    </column>
+    <column id="427" parent="309" name="taux_diplomation">
+      <DasType>decimal(5,2 digit)|0s</DasType>
+      <Position>25</Position>
+    </column>
+    <column id="428" parent="309" name="taux_emploi">
+      <DasType>decimal(5,2 digit)|0s</DasType>
+      <Position>26</Position>
+    </column>
+    <index id="429" parent="309" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="430" parent="309" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="431" parent="310" name="id">
+      <AutoIncrement>4</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="432" parent="310" name="Nom">
+      <DasType>varchar(50)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="433" parent="310" name="prenom">
+      <DasType>varchar(50)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="434" parent="310" name="email">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="435" parent="310" name="phone">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="436" parent="310" name="matricule">
+      <DasType>varchar(50)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="437" parent="310" name="motDePasse">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="438" parent="310" name="role">
+      <DasType>enum(&apos;candidat&apos;, &apos;autoritesignataire&apos;, &apos;superadmin&apos;, &apos;administrateur&apos;, &apos;responsablesecurite&apos;, &apos;candidatpotentiel&apos;, &apos;serviceadministratifecole&apos;)|0e</DasType>
+      <DefaultExpression>&apos;candidatpotentiel&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="439" parent="310" name="dateInscription">
+      <DasType>timestamp|0s</DasType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>9</Position>
+    </column>
+    <column id="440" parent="310" name="statut">
+      <DasType>tinyint(1)|0s</DasType>
+      <DefaultExpression>1</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="441" parent="310" name="dateCreation">
+      <DasType>timestamp|0s</DasType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>11</Position>
+    </column>
+    <column id="442" parent="310" name="derniereConnexion">
+      <DasType>timestamp|0s</DasType>
+      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
+      <Position>12</Position>
+    </column>
+    <column id="443" parent="310" name="dateModification">
+      <DasType>timestamp|0s</DasType>
+      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
+      <Position>13</Position>
+    </column>
+    <column id="444" parent="310" name="dateNaissance">
+      <DasType>date|0s</DasType>
+      <Position>14</Position>
+    </column>
+    <column id="445" parent="310" name="genre">
+      <DasType>enum(&apos;homme&apos;, &apos;femme&apos;, &apos;autre&apos;)|0e</DasType>
+      <DefaultExpression>&apos;autre&apos;</DefaultExpression>
+      <Position>15</Position>
+    </column>
+    <column id="446" parent="310" name="photoProfil">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>16</Position>
+    </column>
+    <column id="447" parent="310" name="bio">
+      <DasType>text|0s</DasType>
+      <Position>17</Position>
+    </column>
+    <column id="448" parent="310" name="adresse">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>18</Position>
+    </column>
+    <column id="449" parent="310" name="salt">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>19</Position>
+    </column>
+    <column id="450" parent="310" name="lastLoginIP">
+      <DasType>varchar(45)|0s</DasType>
+      <Position>20</Position>
+    </column>
+    <column id="451" parent="310" name="failedLoginAttempts">
+      <DasType>int|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>21</Position>
+    </column>
+    <column id="452" parent="310" name="accountLocked">
+      <DasType>tinyint(1)|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>22</Position>
+    </column>
+    <column id="453" parent="310" name="resetPasswordToken">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>23</Position>
+    </column>
+    <column id="454" parent="310" name="resetPasswordExpiry">
+      <DasType>timestamp|0s</DasType>
+      <Position>24</Position>
+    </column>
+    <column id="455" parent="310" name="twoFactorEnabled">
+      <DasType>tinyint(1)|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>25</Position>
+    </column>
+    <column id="456" parent="310" name="twoFactorSecret">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>26</Position>
+    </column>
+    <index id="457" parent="310" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="458" parent="310" name="email">
+      <ColNames>email</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="459" parent="310" name="phone">
+      <ColNames>phone</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="460" parent="310" name="matricule">
+      <ColNames>matricule</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="461" parent="310" name="matricule_2">
+      <ColNames>matricule</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="462" parent="310" name="salt">
+      <ColNames>salt</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="463" parent="310" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="464" parent="310" name="email">
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
-    <key id="358" parent="305" name="phone">
+    <key id="465" parent="310" name="phone">
       <UnderlyingIndexName>phone</UnderlyingIndexName>
     </key>
-    <key id="359" parent="305" name="matricule">
+    <key id="466" parent="310" name="matricule">
       <UnderlyingIndexName>matricule</UnderlyingIndexName>
     </key>
-    <key id="360" parent="305" name="matricule_2">
+    <key id="467" parent="310" name="matricule_2">
       <UnderlyingIndexName>matricule_2</UnderlyingIndexName>
     </key>
-    <key id="361" parent="305" name="salt">
+    <key id="468" parent="310" name="salt">
       <UnderlyingIndexName>salt</UnderlyingIndexName>
     </key>
   </database-model>

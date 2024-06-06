@@ -4,21 +4,39 @@ import com.spiderdiplome.models.Utilisateur;
 import com.spiderdiplome.repository.implement.UtilisateurDAOImpl;
 import com.spiderdiplome.security.hashing.PasswordHashing;
 
+
+/**
+ * This class provides methods for authenticating users and registering new users.
+ */
 public class AuthenticationService {
 
     private final UtilisateurDAOImpl utilisateurDAO;
     private final PasswordHashing passwordHashing;
 
+    /**
+     * Default constructor that initializes the UtilisateurDAOImpl and PasswordHashing objects.
+     */
     public AuthenticationService() {
         this.utilisateurDAO = new UtilisateurDAOImpl();
         this.passwordHashing = new PasswordHashing();
     }
 
+    /**
+     * Constructor that accepts UtilisateurDAOImpl and PasswordHashing objects.
+     * @param utilisateurDAO The DAO object for handling database operations related to Utilisateur.
+     * @param passwordHashing The object for handling password hashing operations.
+     */
     public AuthenticationService(UtilisateurDAOImpl utilisateurDAO, PasswordHashing passwordHashing) {
         this.utilisateurDAO = utilisateurDAO;
         this.passwordHashing = passwordHashing;
     }
 
+    /**
+     * Authenticates a user by their matricule and password.
+     * @param matricule The matricule of the user.
+     * @param password The password of the user.
+     * @return true if the user is authenticated successfully, false otherwise.
+     */
     public boolean authenticate(String matricule, String password) {
         System.out.println("Dans la Methode AuthenticationService.authenticate()....");
         Utilisateur utilisateur = this.utilisateurDAO.findByMatricule(matricule);
@@ -46,6 +64,14 @@ public class AuthenticationService {
         return utilisateur.getMotDePasse().equals(hashedPassword);
     }
 
+    /**
+     * Registers a new user with the given details.
+     * @param firstname The first name of the user.
+     * @param lastname The last name of the user.
+     * @param phoneEmail The phone number or email of the user.
+     * @param password The password of the user.
+     * @return true if the user is registered successfully, false otherwise.
+     */
     public boolean register(String firstname, String lastname, String phoneEmail, String password) {
         System.out.println("Dans la Methode AuthenticationService.register()....");
         String phone = "";

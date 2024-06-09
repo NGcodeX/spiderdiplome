@@ -244,7 +244,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="btn btn-sm pull-right" href="lock_screen.html">
+				<a class="btn btn-sm pull-right" href="verrouiller">
 					<i class="fa fa-lock"></i>
 				</a>
 				<a class="btn btn-sm pull-right logoutConfirm_open"  href="#logoutConfirm">

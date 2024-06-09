@@ -74,6 +74,7 @@ public class EditUserServlet extends HttpServlet {
         Utilisateur existingUser = utilisateurDAO.findByMatricule(matricule);
         if (existingUser == null) {
             setErrorAndRedirect(req, resp, "Aucun utilisateur avec ce matricule.");
+            System.out.println("Aucun utilisateur avec ce matricule.");
             return;
         }
 
@@ -82,7 +83,7 @@ public class EditUserServlet extends HttpServlet {
         try {
             existingUser = updateUser(existingUser, phoneEmail, statusbd, role, firstName, lastName, password);
             utilisateurDAO.update(existingUser);
-
+            System.out.println("Le compte a été mis à jour avec succès !");
             setSuccessAndRedirect(req, resp, "Le compte a été mis à jour avec succès !");
         } catch (Exception e) {
             setErrorAndRedirect(req, resp, "Erreur lors de la mise à jour de l'utilisateur : " + e.getMessage());
@@ -102,7 +103,7 @@ public class EditUserServlet extends HttpServlet {
         user.setRole(role);
         user.setNom(firstName);
         user.setPrenom(lastName);
-        if (password != null && !password.isEmpty()) {
+        if (password != null) {
             String hashedPassword = this.passwordHashing.hash(password, salt);
             if (hashedPassword == null) {
                 throw new Exception("Erreur lors du hachage du mot de passe");

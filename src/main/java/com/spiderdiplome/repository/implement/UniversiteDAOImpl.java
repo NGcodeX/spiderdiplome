@@ -14,7 +14,7 @@ import java.util.List;
 public class UniversiteDAOImpl implements UniversiteDAO {
     private Connection connection;
 
-    public UniversiteDAOImpl(Connection connection) {
+    public UniversiteDAOImpl() {
         this.connection = connection;
     }
 
@@ -71,7 +71,9 @@ public class UniversiteDAOImpl implements UniversiteDAO {
         List<Universite> universites = new ArrayList<>();
         String sql = "SELECT * FROM universites";
 
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {

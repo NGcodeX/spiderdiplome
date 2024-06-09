@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>${User.getUserName()}|Admin/Ajouter utilisateurs</title>
+	  <title>${user.getNom()}|Admin/editer utilisateurs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -233,7 +233,7 @@
 				</li>
 				<li class="profile dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						<strong>nguenazebs</strong>
+						<strong>${user.getNom()}${user.getPrenom()}</strong>
 						<span><i class="fa fa-chevron-down"></i></span>
 					</a>
 					<ul class="dropdown-menu">
@@ -241,8 +241,8 @@
 							<a class="clearfix" href="#">
 								<img src="img/user.jpg" alt="User Avatar">
 								<div class="detail">
-									<strong>User Name</strong>
-									<p class="grey">user_name@email.com</p> 
+									<strong>${user.getMatricule()}</strong>
+									<p class="grey">${user.getPhone()}</p>
 								</div>
 							</a>
 						</li>
@@ -280,10 +280,11 @@
 				<div class="user-block clearfix">
 					<img src="img/user.jpg" alt="User Avatar">
 					<div class="detail">
-						<strong>User name</strong><span class="badge badge-danger m-left-xs bounceIn animation-delay4">4</span>
+						<strong>${user.getNom()} ${user.getPrenom()}</strong><span
+							class="badge badge-success m-left-xs bounceIn animation-delay4">Online</span>
 						<ul class="list-inline">
-							<li><a href="#">Profile</a></li>
-							<li><a href="#" class="no-margin">Request</a></li>
+							<li><a href="#">Matricule:</a></li>
+							<li><a href="#" class="no-margin">CM-${user.getMatricule()}</a></li>
 						</ul>
 					</div>
 				</div><!-- /user-block -->
@@ -294,11 +295,11 @@
 							<button class="btn btn-default btn-sm" type="button"><i class="fa fa-search"></i></button>
 						</span>
 					</div><!-- /input-group -->
-				</div>
+				</div><!-- /search-block -->
 				<div class="main-menu">
 					<ul>
 						<li class="active">
-							<a href="dashboard.jsp">
+							<a href="tableau-de-bord">
 								<span class="menu-icon">
 									<i class="fa fa-dashboard fa-lg"></i> 
 								</span>
@@ -309,7 +310,7 @@
 							</a>
 						</li>
 						<li class="active">
-							<a href="all-users.jsp">
+							<a href="gestions-utilisateurs">
 								<span class="menu-icon">
 									<i class="fa fa-user fa-lg"></i> 
 								</span>
@@ -319,53 +320,81 @@
 								<span class="menu-hover"></span>
 							</a>
 						</li>
+						<li class="active">
+							<a href="gestions-universites">
+								<span class="menu-icon">
+									<i class="fa fa-building-o fa-lg"></i>
+								</span>
+								<span class="text">
+									Universities
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+						</li>
 					</ul>
 					<div class="alert alert-info">
 						Bienvenue a Spider Diplome. n'oublié pas de nous soutenir afin de rendre la digitalisation accessible pour tous
 					</div>
-			</div><!-- /sidebar-inner -->
+				</div><!-- /sidebar-inner -->
 			</div>
 		</aside>
 
 		<div id="main-container">
 			<div id="breadcrumb">
 				<ul class="breadcrumb">
-					 <li><i class="fa fa-home"></i><a href="dashboard.jsp"> Home</a></li>
-					 <li class="active"><a href="all-users.jsp">Utilisateurs</a></li>
-					 <li class="active">edit Utilisateur</li>	 
+					<li><i class="fa fa-home"></i><a href="/"> Home</a></li>
+					<li class="active"><a href="gestions-utilisateurs">Utilisateurs</a></li>
+					<li class="active">Editer Utilisateur</li>
 				</ul>
 			</div><!-- /breadcrumb-->
 			<div class="padding-md">
-				<a href="all-users.jsp" class="btn btn-success"><i class="fa fa-reply"></i> Retour</a>
-				<a class="btn btn-default"><i class="fa fa-print"></i> Print User</a>
-				<div class="panel panel-default">
+				<a href="gestions-utilisateurs" class="btn btn-success"><i class="fa fa-reply"></i> Retour</a>
+				<a class="btn btn-default" onclick="printForm()"><i class="fa fa-print"></i> Print User</a>
 
-					<form class="no-margin" id="formValidate1" data-validate="parsley" novalidate method="post">
+				<div class="panel panel-default">
+					<form action="editer-utilisateur" class="no-margin"
+						  method="post">
 						<div class="panel-heading">
-							User General Information (Voir)
+							User General Information (Add) votre initial est: CM-${user.getMatricule()}
 						</div>
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group has-success">
-										<label class="control-label">Status <span class="label label-warning">account</span> <span class="label label-danger">required</span></label>			
-											<select class="form-control has-success">
-												<option>Actif</option>
-												<option>Suspended</option>
-											</select>
+										<label class="control-label">Status <span
+												class="label label-warning">account</span></label>
+										<select name="status" class="form-control has-success">
+											<c:choose>
+												<c:when test="${userToEdit.getStatut() == 1}">
+													<option selected>Actif</option>
+													<option>Inactif</option>
+												</c:when>
+												<c:otherwise>
+													<option>Actif</option>
+													<option selected>Inactif</option>
+												</c:otherwise>
+											</c:choose>
+										</select>
 									</div><!-- /form-group -->
 								</div><!-- /.col -->
 								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label">Date</label>
-											<div class="input-group">
-												<input disabled value="01/01/2024" type="text" class="datepicker form-control" data-required="true">
-												<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-											</div>
-									</div><!-- /form-group -->
-								</div><!-- /.col -->
-							</div><!-- /.row -->
-							
+									<div class="form-group has-success">
+										<label class="control-label">Role <span
+												class="label label-warning">account</span></label>
+										<select name="role" class="form-control has-success">
+											<option selected>${userToEdit.getRole()}</option>
+											<option>candidat</option>
+											<option>autoritesignataire</option>
+											<option>superadmin</option>
+											<option>administrateur</option>
+											<option>responsablesecurite</option>
+											<option>candidatpotentiel</option>
+											<option>serviceadministratifecole</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
 							<h4 class="headline">
 								USER PERSONAL INFORMATIONS
 								<span class="line"></span>
@@ -374,14 +403,18 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label class="control-label">First Name <span class="label label-danger">required</span></label>
-										<input type="text" placeholder="First Name" value="Pilote" class="form-control input-sm" data-required="true">
+										<label class="control-label">First Name </label>
+										<input type="text" name="firstName" placeholder="First Name"
+											   class="form-control input-sm" data-required="true"
+											   value="${userToEdit.getNom()}">
 									</div><!-- /form-group -->
 								</div><!-- /.col -->
 								<div class="col-md-6">
 									<div class="form-group">
-										<label class="control-label">Last Name <span class="label label-danger">required</span></label>
-										<input type="text" value="Zebs" class="form-control input-sm" data-required="true">
+										<label class="control-label">Last Name</label>
+										<input type="text" name="lastName" placeholder="Last Name"
+											   class="form-control input-sm" data-required="true"
+											   value="${userToEdit.getPrenom()}">
 									</div><!-- /form-group -->
 								</div><!-- /.col -->
 							</div><!-- /.row -->
@@ -389,17 +422,17 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label class="control-label">Phone <span class="label label-danger">required</span></label>
-											<input value="692077005" type="text" class=" form-control input-sm phone" data-minlength="15">
-									</div><!-- /form-group -->
-								</div><!-- /.col -->
-								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label">Email </label>
-										<input type="text" class="form-control input-sm" value="null" data-required="true" data-type="email">
+										<label class="control-label">Telephone ou E-mail (Du tuteur Legal)</label>
+										<input type="text" id="phone" name="phoneEmail" placeholder="Username"
+											   class="form-control input-sm" data-required="true"
+											   data-minlength="8" value="${userToEdit.getPhone()}">
 									</div>
 								</div><!-- /.col -->
+								<div class="col-md-6">
+
+								</div><!-- /.col -->
 							</div><!-- /.row -->
+
 
 							<h4 class="headline">
 								USER ACCOUNT INFORMATION
@@ -407,121 +440,96 @@
 							</h4>
 
 							<div class="form-group">
-								<label class="control-label">Matricule <span class="label label-danger">required</span></label>
-								<input type="text" value="CM20240000" class="form-control input-sm" data-required="true">
+								<label class="control-label">Matricule (Optional) </label>
+								<input type="text" name="matricule" placeholder="username"
+									   class="form-control input-sm" data-required="true"
+									   value="${userToEdit.getMatricule()}">
 							</div><!-- /form-group -->
-							
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label">New Password <span class="label label-danger">required</span></label>
-										<input type="password"  class="form-control input-sm" id="password" data-required="true" data-minlength="8">
-									</div><!-- /form-group -->
-								</div><!-- /.col -->
-								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label">Confirm Password <span class="label label-danger">required</span></label>
-										<input type="password" placeholder="Confirm Password" class="form-control input-sm" data-equalto="#password" data-required="true">
-									</div><!-- /form-group -->
-								</div><!-- /.col -->
-							</div>
-
 							<div class="form-group">
-								<label class="control-label">Bio User (optionnal)</label>
-									<textarea class="form-control" rows="3">I am the super admin of the project</textarea>
-							</div><!-- /form-group -->
+								<label class="control-label">New PassPassword (Optional)</label>
+								<input type="password" name="password" placeholder="Password"
+									   class="form-control input-sm" id="password"
+									   data-required="true" data-minlength="8">
+							</div>
+							<script>
+								// Attacher l'écouteur d'événement après le chargement complet du DOM
+								document.addEventListener('DOMContentLoaded', function () {
+									// Sélectionner le formulaire par sa classe
+									var form = document.querySelector('.form-login');
+
+									form.addEventListener('submit', function (e) {
+										// Sélectionner le champ de mot de passe par son nom
+										var password = document.querySelector('input[name="password"]');
+
+										// Vérifier si la longueur du mot de passe est inférieure à 8 caractères
+										if (password.value.length < 8) {
+											// Afficher une alerte si le mot de passe est trop court
+											alert('Le mot de passe doit comporter au moins 8 caractères');
+											// Empêcher la soumission du formulaire
+											e.preventDefault();
+										}
+									});
+								});
+							</script>
 
 							<div class="form-group">
 								<label class="control-label">User Picture</label>
-									<input type="file" data-required="true">
+								<input type="file" name="picture" data-required="true">
 									<span class="label label-warning">* Only JPEG and JPG supported, * Max 3 MB Upload</span>
-							</div><!-- /form-group -->
-							
-							<div class="form-group">
-								<label class="label-checkbox inline">
-									<input type="checkbox" name="agreement" data-required="true">
-									<span class="custom-checkbox"></span>
-									I accept the user agreement
-								</label>
-							</div><!-- /form-group -->
+							</div>
+
 						</div>
 						<div class="panel-footer text-right">
-							<button type="submit" class="btn btn-success"><i class="fa fa-download"></i> Edit User</button>
-							<button type="submit" class="btn btn-danger"><i class="fa  fa-times"></i> Cancel</button>
+							<button type="submit" class="btn btn-success"><i class="fa fa-download"></i> Update User
+							</button>
+							<button type="button" class="btn btn-danger" id="cancelButton">
+								<i class="fa fa-times"></i> Cancel
+							</button>
 						</div>
 					</form>
+					<script>
+						function printForm() {
+							var printContents = document.getElementById('formValidate1').innerHTML;
+							var originalContents = document.body.innerHTML;
+
+							document.body.innerHTML = "<html><head><title>Ajout d'un nouvel utilisateur</title></head><body>" + printContents + "</body>";
+							window.print();
+
+							document.body.innerHTML = originalContents;
+						}
+					</script>
 				</div><!-- /panel -->
 			</div><!-- /.padding-md -->
 		</div><!-- /main-container -->
 	</div><!-- /wrapper -->
 
 	<a href="" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
-	
+
 	<!-- Logout confirmation -->
 	<div class="custom-popup width-100" id="logoutConfirm">
 		<div class="padding-md">
-			<h4 class="m-top-none"> Do you want to logout?</h4>
+			<h4 class="m-top-none"> Voulez vous vous deconncter de Spider Diplome??</h4>
 		</div>
 
 		<div class="text-center">
-			<a class="btn btn-success m-right-sm" href="index.html">Logout</a>
-			<a class="btn btn-danger logoutConfirm_close">Cancel</a>
+			<a class="btn btn-success m-right-sm" href="deconnexion">deconnexion</a>
+			<a class="btn btn-danger logoutConfirm_close">Non Rester</a>
 		</div>
 	</div>
 	
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-	
-	<!-- Jquery -->
+
 	<script src="js/jquery-1.10.2.min.js"></script>
-	
-	<!-- Bootstrap -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    
-	<!-- Chosen -->
-	<script src='js/chosen.jquery.min.js'></script>	
-
-	<!-- Mask-input -->
-	<script src='js/jquery.maskedinput.min.js'></script>	
-
-	<!-- Datepicker -->
-	<script src='js/bootstrap-datepicker.min.js'></script>	
-
-	<!-- Timepicker -->
-	<script src='js/bootstrap-timepicker.min.js'></script>	
-	
-	<!-- Slider -->
-	<script src='js/bootstrap-slider.min.js'></script>	
-	
-	<!-- Tag input -->
-	<script src='js/jquery.tagsinput.min.js'></script>	
-
-	<!-- WYSIHTML5 -->
-	<script src='js/wysihtml5-0.3.0.min.js'></script>	
-	<script src='js/uncompressed/bootstrap-wysihtml5.js'></script>	
-
-	<!-- Dropzone -->
-	<script src='js/dropzone.min.js'></script>	
-	
-	<!-- Modernizr -->
 	<script src='js/modernizr.min.js'></script>
-	
-	<!-- Pace -->
 	<script src='js/pace.min.js'></script>
-	
-	<!-- Popup Overlay -->
 	<script src='js/jquery.popupoverlay.min.js'></script>
-	
-	<!-- Slimscroll -->
 	<script src='js/jquery.slimscroll.min.js'></script>
-	
-	<!-- Cookie -->
 	<script src='js/jquery.cookie.min.js'></script>
-
-	<!-- Perfect -->
-	<script src="js/app/app_form.js"></script>
 	<script src="js/app/app.js"></script>
+	<script src='js/jquery.maskedinput.min.js'></script>
 	
   </body>
 </html>

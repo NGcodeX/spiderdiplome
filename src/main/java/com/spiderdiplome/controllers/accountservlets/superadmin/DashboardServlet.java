@@ -1,6 +1,9 @@
 package com.spiderdiplome.controllers.accountservlets.superadmin;
 
 import com.spiderdiplome.models.Utilisateur;
+import com.spiderdiplome.repository.dao.UniversiteDAO;
+import com.spiderdiplome.repository.dao.UtilisateurDAO;
+import com.spiderdiplome.repository.implement.UniversiteDAOImpl;
 import com.spiderdiplome.repository.implement.UtilisateurDAOImpl;
 
 import javax.servlet.ServletException;
@@ -13,7 +16,7 @@ import java.io.IOException;
 
 @WebServlet(name = "DashboardServlet", value = "/tableau-de-bord", description = "Dashboard de l'administrateur")
 public class DashboardServlet extends HttpServlet {
-    private UtilisateurDAOImpl utilisateurDAO;
+    private UtilisateurDAO utilisateurDAO;
 
     @Override
     public void init() throws ServletException {
@@ -32,7 +35,7 @@ public class DashboardServlet extends HttpServlet {
 
             switch (utilisateur.getRole()) {
                 case "superadmin":
-                    req.setAttribute("users", utilisateurDAO.readAll());
+                    session.setAttribute("users", utilisateurDAO.readAll());
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/v1/data/secure/superadmin-area/dashboard.jsp").forward(req, resp);
                     break;
                 case "user":

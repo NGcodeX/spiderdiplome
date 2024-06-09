@@ -89,10 +89,10 @@ public class AuthenticationService {
 
 
         if (existingUser != null) {
-        System.out.println("Utilisateur déjà existant");
-        // Si l'utilisateur existe déjà, l'inscription échoue
-        return false;
-    }
+            System.out.println("Utilisateur déjà existant");
+            // Si l'utilisateur existe déjà, l'inscription échoue
+            return false;
+        }
 
     System.out.println("Utilisateur non existant");
 

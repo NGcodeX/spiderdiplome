@@ -396,17 +396,69 @@
                                         <th><span class="label label-danger">Inactif</span></th>
                                     </c:otherwise>
                                 </c:choose>
-                                <td>
-                                    <a href="view-user.jsp"><i class="fa fa-info-circle"></i></a>
-                                    <a href="edit-user.jsp"><i class="fa fa-edit"></i></a>
-                                    <a href="all-users.html"><i class="fa fa-pause"></i></a>
-                                    <a href="#"><i class="fa fa-sign-in"></i></a>
+                                <td style="font-size: 20px;">
+                                    <a href="#" onclick="viewUser('${users.matricule}')"><i
+                                            class="fa fa-info-circle"></i></a>
+                                    <a href="#" onclick="editUser('${users.matricule}')"><i class="fa fa-edit"></i></a>
+                                    <a href="#" onclick="pauseUser('${users.matricule}')"><i
+                                            class="fa fa-pause"></i></a>
+                                    <a href="#" onclick="signInUser('${users.matricule}')"><i class="fa fa-sign-in"></i></a>
                                     <i class="fa fa-trash-o" onclick="deleteUser('${users.matricule}')"></i>
                                 </td>
                                 <td>Secure</td>
                             </tr>
                         </c:forEach>
                         <script>
+                            function viewUser(matricule) {
+                                window.location.href = 'Voir-utilisateur?matricule=' + encodeURIComponent(matricule);
+                            }
+
+                            function editUser(matricule) {
+                                window.location.href = 'editer-utilisateur?matricule=' + encodeURIComponent(matricule);
+                            }
+
+                            function pauseUser(matricule) {
+                                // Implement your logic here
+                                // For example, you might want to make a fetch request to a server-side route that handles the "pause" action
+                                fetch('pause-utilisateur', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: 'matricule=' + encodeURIComponent(matricule),
+                                })
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Network response was not ok');
+                                        }
+                                        location.reload();
+                                    })
+                                    .catch(error => {
+                                        console.error('There has been a problem with your fetch operation:', error);
+                                    });
+                            }
+
+                            function signInUser(matricule) {
+                                // Implement your logic here
+                                // For example, you might want to make a fetch request to a server-side route that handles the "sign in" action
+                                fetch('sign-in-utilisateur', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: 'matricule=' + encodeURIComponent(matricule),
+                                })
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Network response was not ok');
+                                        }
+                                        location.reload();
+                                    })
+                                    .catch(error => {
+                                        console.error('There has been a problem with your fetch operation:', error);
+                                    });
+                            }
+
                             function deleteUser(matricule) {
                                 fetch('supprimer-utilisateur', {
                                     method: 'POST',

@@ -348,12 +348,12 @@
 				</ul>
 			</div><!-- /breadcrumb-->
 			<div class="padding-md">
-				${errorAdd}
-				${successAdd}
 				<a href="gestions-utilisateurs" class="btn btn-success"><i class="fa fa-reply"></i> Retour</a>
 				<a class="btn btn-default" onclick="printForm()"><i class="fa fa-print"></i> Print Empty form</a>
 
 				<div class="panel panel-default">
+                    ${errorAdd}
+                    ${successAdd}
 					<form action="ajout-utilisateur" class="no-margin" id="formValidate1" data-validate="parsley"
 						  novalidate method="post">
 						<div class="panel-heading">
@@ -388,26 +388,36 @@
 									});
 								</script>
 								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label">Date</label>
-											<div class="input-group">
-												<input id="currentDate" name="date" disabled type="text"
-													   class="datepicker form-control" data-required="true">
-												<script>
-													window.onload = function () {
-														var today = new Date();
-														var dd = String(today.getDate()).padStart(2, '0');
-														var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-														var yyyy = today.getFullYear();
+                                    <div class="form-group has-success">
+                                        <label class="control-label">Role <span
+                                                class="label label-warning">account</span> <span
+                                                class="label label-danger">required</span></label>
+                                        <select name="role" class="form-control has-success">
+                                            <option></option>
+                                            <option>candidat</option>
+                                            <option>autoritesignataire</option>
+                                            <option>superadmin</option>
+                                            <option>administrateur</option>
+                                            <option>responsablesecurite</option>
+                                            <option>candidatpotentiel</option>
+                                            <option>serviceadministratifecole</option>
+                                        </select>
+                                    </div>
+                                    <script>
+                                        document.querySelector('select[name="role"]').addEventListener('change', function () {
+                                            // Supprimer les espaces
+                                            var value = this.value.replace(/\s+/g, '');
 
-														today = dd + '/' + mm + '/' + yyyy;
-
-														document.getElementById('currentDate').value = today;
-													}
-												</script>
-												<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-											</div>
-									</div>
+                                            // Vérifier que la valeur est l'une des options valides
+                                            var validOptions = ['candidat', 'autoritesignataire', 'superadmin', 'administrateur', 'responsablesecurite', 'candidatpotentiel', 'serviceadministratifecole'];
+                                            if (validOptions.includes(value)) {
+                                                this.value = value;
+                                            } else {
+                                                alert("La valeur doit être l'une des suivantes : " + validOptions.join(', '));
+                                                this.value = ""; // Réinitialiser la valeur
+                                            }
+                                        });
+                                    </script>
 								</div>
 							</div>
 							
@@ -447,19 +457,22 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label class="control-label">Phone <span class="label label-danger">required</span></label>
-										<input placeholder="6xx xx xx xx" required name="phone" type="text"
-											   class="form-control input-sm" data-minlength="15">
-									</div><!-- /form-group -->
+                                        <label class="control-label">Telephone ou E-mail (Du tuteur Legal)</label>
+                                        <input type="text" id="phone" name="phoneEmail" required placeholder="Username"
+                                               class="form-control input-sm" data-required="true"
+                                               data-minlength="8">
+                                    </div>
+
+                                    <script>
+                                        document.getElementById('phone').addEventListener('input', function (e) {
+                                            // Supprimer tout caractère non numérique, non lettre, non point, non tiret et non @
+                                            e.target.value = e.target.value.replace(/[^0-9a-zA-Z.@-]/g, '');
+                                        });
+                                    </script>
 								</div><!-- /.col -->
 								<div class="col-md-6">
-									<div class="form-group">
-										<label class="control-label">Email (Optionnal)</label>
-										<input type="text" name="email" class="form-control input-sm"
-											   placeholder="test@ictuniversity.edu.cm" data-required="true"
-											   data-type="email">
-									</div>
-								</div><!-- /.col -->
+
+                                </div><!-- /.col -->
 							</div><!-- /.row -->
 
 

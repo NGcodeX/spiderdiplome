@@ -332,7 +332,7 @@
 				<a class="btn btn-default"><i class="fa fa-print"></i> Print List</a>
 				<a class="btn btn-danger"><i class="fa fa-download"></i> Export List</a>
 				<a class="btn btn-primary"><i class="fa fa-upload"></i> Import List</a>
-				<a href="#" class="btn btn-success"><i class="fa fa-sign-in"></i> Add college on moodle</a>
+				<a href="#" class="btn btn-success"><i class="fa fa-sign-in"></i>Moodle Config</a>
 				<div class="panel panel-default table-responsive">
 					<div class="panel-heading">
 						All colleges
@@ -341,38 +341,47 @@
 					<div class="padding-md clearfix">
 						<table class="table table-striped" id="dataTable">
 							<thead>
-								<tr>
-                                    <th>College ID</th>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Phone</th>
-                                    <th>Email</th>
-                                    <th>Address</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                    <th>-</th>
-                                </tr>
-                                
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Location</th>
+								<th>Description</th>
+								<th>Date</th>
+								<th>Status</th>
+								<th>Website</th>
+								<th>Contact</th>
+								<th>Postal</th>
+								<th>Deadline</th>
+								<th>Type</th>
+								<th>Action</th>
+								<th>-</th>
+							</tr>
 							</thead>
 							<tbody>
+							<c:forEach var="universite" items="${universities}">
 								<tr>
-                                    <td>UNIV20240101</td>
-                                    <td>ICT University</td>
-                                    <td>Private</td>
-                                    <td>692077005</td>
-                                    <td>info@university.edu.cm</td>
-                                    <td>Dispensaire Messasi</td>
-                                    <td><span class="label label-success">Active</span></td>
-                                    <td>
-                                        <a href="view-college.jsp"><i class="fa fa-info-circle"></i></a>
-                                        <a href="edit-college.jsp"><i class="fa fa-edit"></i></a>
-                                        <i class="fa fa-pause"></i>
-                                        <a href="#"><i class="fa fa-sign-in"></i></a>
-                                        <i class="fa fa-trash-o"></i>
-                                    </td>
-                                    <td>confirm</td>
-                                </tr>
-                                
+									<td>${universite.id}</td>
+									<td>${universite.nom}</td>
+									<td>${universite.emplacement}</td>
+									<td>${universite.description}</td>
+									<td><fmt:formatDate value="${universite.date_ajoutee}" pattern="yyyy-MM-dd"/></td>
+									<td>${universite.statut}</td>
+									<td>${universite.site_web}</td>
+									<td>${universite.numero_contact}</td>
+									<td>${universite.adresse_postale}</td>
+									<td><fmt:formatDate value="${universite.date_limite_application}"
+														pattern="yyyy-MM-dd"/></td>
+									<td>${universite.type_universite}</td>
+									<td>
+										<a href="view-college.jsp"><i class="fa fa-info-circle"></i></a>
+										<a href="edit-college.jsp"><i class="fa fa-edit"></i></a>
+										<i class="fa fa-pause"></i>
+										<a href="#"><i class="fa fa-sign-in"></i></a>
+										<i class="fa fa-trash-o"></i>
+									</td>
+									<td>confirm</td>
+								</tr>
+							</c:forEach>
 							</tbody>
 						</table>
 					</div><!-- /.padding-md -->

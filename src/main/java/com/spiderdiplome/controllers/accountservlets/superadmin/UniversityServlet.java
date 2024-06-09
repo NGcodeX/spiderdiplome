@@ -1,6 +1,8 @@
 package com.spiderdiplome.controllers.accountservlets.superadmin;
 
 import com.spiderdiplome.models.Utilisateur;
+import com.spiderdiplome.repository.dao.UniversiteDAO;
+import com.spiderdiplome.repository.implement.UniversiteDAOImpl;
 import com.spiderdiplome.repository.implement.UtilisateurDAOImpl;
 
 import javax.servlet.ServletException;
@@ -14,13 +16,13 @@ import java.io.IOException;
 @WebServlet(name = "UniversityServlet", value = "/gestions-universites", description = "Gestion des universités")
 public class UniversityServlet extends HttpServlet {
 
-    private UtilisateurDAOImpl utilisateurDAO;
+    private UniversiteDAO universiteDAO;
 
     @Override
     public void init() throws ServletException {
         super.init();
         // Initialisation du servlet
-        utilisateurDAO = new UtilisateurDAOImpl();
+        universiteDAO = new UniversiteDAOImpl();
     }
 
     @Override
@@ -31,7 +33,7 @@ public class UniversityServlet extends HttpServlet {
 
             switch (utilisateur.getRole()) {
                 case "superadmin":
-                    req.setAttribute("users", utilisateurDAO.readAll());
+                    session.setAttribute("universities", universiteDAO.findAll());
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/v1/data/secure/superadmin-area/all-colleges.jsp").forward(req, resp);
                     break;
                 case "user":

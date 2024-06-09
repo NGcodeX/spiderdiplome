@@ -5,7 +5,9 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chat.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/v1/data/secure/superadmin-area/all-users.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/v1/data/secure/superadmin-area" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/v1/data/secure/superadmin-area/dashboard.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/v1/data/secure/superadmin-area" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/v1/data/secure/superadmin-area/edit-user.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/v1/data/secure/superadmin-area" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/v1/data/secure/superadmin-area/view-user.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/v1/data/secure/superadmin-area" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>

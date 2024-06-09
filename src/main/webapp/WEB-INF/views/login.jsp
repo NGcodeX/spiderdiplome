@@ -87,7 +87,7 @@
                     <div class="form-group">
                         <label><i class="fa fa-graduation-cap fa-lg"></i> Matricule ${errorIdentifiant}</label>
                         <input type="text" id="matricule" name="matricule" placeholder="Matricule ou E-mail"
-                               class="form-control input-sm bounceIn animation-delay2" maxlength="14" required>
+                               class="form-control input-sm bounceIn animation-delay2" maxlength="50" required>
                     </div>
                     <script>
                         document.getElementById('matricule').addEventListener('input', function (e) {

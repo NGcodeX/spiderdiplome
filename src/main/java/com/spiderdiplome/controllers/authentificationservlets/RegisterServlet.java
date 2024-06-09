@@ -32,45 +32,25 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Récupération des paramètres de la requête
         String firstname = req.getParameter("firstname");
         String lastname = req.getParameter("lastname");
         String phoneEmail = req.getParameter("phoneEmail");
         String password = req.getParameter("password");
         String confpassword = req.getParameter("confpassword");
 
-        // Vérification des paramètres de la requête
         if (!validateInput(firstname, lastname, phoneEmail, password, confpassword)) {
-            req.setAttribute("errorMessage", "All fields must not be empty and passwords must match");
-            this.getServletContext().getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
+            forwardWithError(req, resp, "All fields must not be empty and passwords must match");
             return;
         }
 
-        // Tentative d'inscription
         try {
-            boolean isRegistered = authService.register(firstname, lastname, phoneEmail, password);
-
-            if (isRegistered) {
-                System.out.println("Inscription réussie!");
-                req.setAttribute("successMessage", "<div class=\"alert alert-success\">\n" +
-                        "    <strong>Votre compte a été créé avec succès !</strong> Bienvenue!! Candidat. Vous pouvez maintenant vous connecter et profiter de la plateforme.\n" +
-                        "</div>");
-                // Si l'inscription réussit, redirection vers la page de connexion
-                this.getServletContext().getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
+            if (authService.register(firstname, lastname, phoneEmail, password)) {
+                forwardWithSuccess(req, resp, "Votre compte a été créé avec succès ! Bienvenue!! Candidat. Vous pouvez maintenant vous connecter et profiter de la plateforme.");
             } else {
-                req.setAttribute("errorMessage", "<div class=\"alert alert-danger\">\n" +
-                        "    <strong>La création de votre compte a échoué !</strong> Nous sommes désolés, il semble y avoir eu un problème. Veuillez réessayer.\n" +
-                        "</div>");
-                // Si l'inscription échoue, renvoi à la page d'inscription avec un message d'erreur
-                this.getServletContext().getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
+                forwardWithError(req, resp, "La création de votre compte a échoué ! Nous sommes désolés, il semble y avoir eu un problème. Veuillez réessayer.");
             }
         } catch (Exception e) {
-            // Gestion des exceptions
-            req.setAttribute("errorMessage", "<div class=\"alert alert-danger\">\n" +
-                    "    <strong>Attention erreur: </strong>" + e.getMessage() + "\n" +
-                    "</div>");
-            req.setAttribute("errorMessage", "An error occurred: " + e.getMessage());
-            this.getServletContext().getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
+            forwardWithError(req, resp, "Attention erreur: " + e.getMessage());
         }
     }
 
@@ -81,6 +61,20 @@ public class RegisterServlet extends HttpServlet {
                 password != null && !password.isEmpty() &&
                 confpassword != null && !confpassword.isEmpty() &&
                 password.equals(confpassword);
+    }
+
+    private void forwardWithError(HttpServletRequest req, HttpServletResponse resp, String errorMessage) throws ServletException, IOException {
+        req.setAttribute("errorMessage", "<div class=\"alert alert-danger\">\n" +
+                "    <strong>" + errorMessage + "</strong>\n" +
+                "</div>");
+        this.getServletContext().getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
+    }
+
+    private void forwardWithSuccess(HttpServletRequest req, HttpServletResponse resp, String successMessage) throws ServletException, IOException {
+        req.setAttribute("successMessage", "<div class=\"alert alert-success\">\n" +
+                "    <strong>" + successMessage + "</strong>\n" +
+                "</div>");
+        this.getServletContext().getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
     }
 
     @Override

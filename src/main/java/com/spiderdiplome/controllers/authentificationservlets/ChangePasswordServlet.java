@@ -40,35 +40,47 @@ public class ChangePasswordServlet extends HttpServlet {
             request.getRequestDispatcher("/mot-de-passe-oublie").forward(request, response);
         }
     }
-@Override
-public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
     String password = request.getParameter("password");
     String confPassword = request.getParameter("confpassword");
 
-    // Check if the passwords match
-    if (!password.equals(confPassword)) {
-        request.setAttribute("errorpasss", "Passwords do not match.");
-        request.setAttribute("errorpass", "*");
-        request.setAttribute("errorconfpass", "*");
-        request.getRequestDispatcher("/changepassword.jsp").forward(request, response);
+        if (passwordsDoNotMatch(password, confPassword)) {
+            forwardWithError(request, response, "Passwords do not match.");
         return;
     }
 
-    // Get the user's username from the session
     String identifiant = (String) request.getSession().getAttribute("identifiant");
 
-    // Hash the password
+        try {
+            updatePasswordAndSalt(identifiant, password);
+
+            request.setAttribute("successchangepasse", "Password updated successfully. Please login.");
+            response.sendRedirect("connexion");
+        } catch (Exception e) {
+            forwardWithError(request, response, "Error updating password. Please try again.");
+        }
+    }
+
+    private boolean passwordsDoNotMatch(String password, String confPassword) {
+        return !password.equals(confPassword);
+    }
+
+    private void updatePasswordAndSalt(String identifiant, String password) throws Exception {
     PasswordHashing passwordHashing = new PasswordHashing();
     String salt = passwordHashing.generateSalt();
     String hashedPassword = passwordHashing.hash(password, salt);
 
-    // Update the user's password and salt
     utilisateurDAO.updatePassword(identifiant, hashedPassword);
     utilisateurDAO.updateSalt(identifiant, salt);
+    }
 
-    // Redirect to login page with success message
-    request.setAttribute("successchangepasse", "Password updated successfully. Please login.");
-    response.sendRedirect("connexion");
+    private void forwardWithError(HttpServletRequest request, HttpServletResponse response, String errorMessage) throws ServletException, IOException {
+        request.setAttribute("errorpasss", errorMessage);
+        request.setAttribute("errorpass", "*");
+        request.setAttribute("errorconfpass", "*");
+        request.getRequestDispatcher("/changepassword.jsp").forward(request, response);
 }
 
     @Override

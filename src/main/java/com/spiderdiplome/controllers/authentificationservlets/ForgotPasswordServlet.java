@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @WebServlet(name = "ForgotPasswordServlet", value = "/mot-de-passe-oublie", description = "ceci est le controlleur de la page de mot de passe oublié")
 public class ForgotPasswordServlet extends HttpServlet{
@@ -61,29 +59,17 @@ public class ForgotPasswordServlet extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String emailOrPhoneOrMatricule = request.getParameter("identifiant");
 
-        // Utilisez le emailOrPhoneOrMatricule pour trouver l'utilisateur dans votre base de données
         Utilisateur utilisateur = utilisateurDAO.findByEmailOrPhoneOrMatricule(emailOrPhoneOrMatricule);
         if (utilisateur == null) {
-            request.setAttribute("errorIdentifiantforgot", "<div class=\"alert alert-danger\">\n" +
-                    "    <strong>Erreur dans la Recherche!</strong> Utilisateur Inexistant. Veuillez réessayer.\n" +
-                    "</div>");
-            request.getRequestDispatcher("/WEB-INF/views/forgotpassword.jsp").forward(request, response);
+            forwardToForgotPasswordPageWithErrorMessage(request, response, "Utilisateur Inexistant. Veuillez réessayer.");
             return;
     }
 
         String token = AuthTokenGenerator.generateToken();
         String resetLink = generateResetLink(request, token);
-        request.getSession().setAttribute("token", token);
+        int code = generateRandomCode();
 
-        // Générer un code aléatoire à 6 chiffres
-        int code = (int) ((Math.random() * 900000) + 100000);
-        request.getSession().setAttribute("code", String.valueOf(code));
-        request.getSession().setAttribute("identifiant", utilisateur.getMatricule());
-        request.getSession().setAttribute("nom", utilisateur.getNom());
-        request.getSession().setAttribute("prenom", utilisateur.getPrenom());
-
-        System.out.println("Reset link: " + resetLink);
-        System.out.println("Code: " + code);
+        setupSessionAttributes(request, utilisateur, token, code);
 
         String subject = "Réinitialisation de mot de passe Spider Diplome";
         String message = generateResetMessage(utilisateur, resetLink, code);
@@ -95,7 +81,18 @@ public class ForgotPasswordServlet extends HttpServlet{
         this.getServletContext().getRequestDispatcher("/WEB-INF/views/forgotpassword.jsp").forward(request, response);
 }
 
-    // Méthode pour générer le message de réinitialisation
+    private void setupSessionAttributes(HttpServletRequest request, Utilisateur utilisateur, String token, int code) {
+        request.getSession().setAttribute("token", token);
+        request.getSession().setAttribute("code", String.valueOf(code));
+        request.getSession().setAttribute("identifiant", utilisateur.getMatricule());
+        request.getSession().setAttribute("nom", utilisateur.getNom());
+        request.getSession().setAttribute("prenom", utilisateur.getPrenom());
+    }
+
+    private int generateRandomCode() {
+        return (int) ((Math.random() * 900000) + 100000);
+    }
+
     private String generateResetMessage(Utilisateur utilisateur, String resetLink, int code) {
         StringBuilder message = new StringBuilder();
         message.append("Bonjour ").append(utilisateur.getNom()).append(" ").append(utilisateur.getPrenom()).append(",\n\n");
@@ -109,24 +106,13 @@ public class ForgotPasswordServlet extends HttpServlet{
         return message.toString();
     }
 
-    private boolean isValidEmail(String email) {
-        // Vérifie si l'email n'est pas vide et est valide
-        if (email.isEmpty()) {
-            return false;
-        }
-
-        String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
-        Pattern pattern = Pattern.compile(emailRegex);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
-
     private void forwardToForgotPasswordPageWithErrorMessage(HttpServletRequest request, HttpServletResponse response, String errorMessage) throws ServletException, IOException {
-        request.setAttribute("errorforgot", errorMessage);
-        request.getRequestDispatcher("/forgotpassword.jsp").forward(request, response);
+        request.setAttribute("errorIdentifiantforgot", "<div class=\"alert alert-danger\">\n" +
+                "    <strong>Erreur dans la Recherche!</strong> " + errorMessage + "\n" +
+                "</div>");
+        request.getRequestDispatcher("/WEB-INF/views/forgotpassword.jsp").forward(request, response);
     }
 
-    // Méthode pour générer le lien de réinitialisation
     private String generateResetLink(HttpServletRequest request, String token) {
         String url = request.getRequestURL().toString();
         String uri = request.getRequestURI();

@@ -40,32 +40,9 @@ Developed test cases for different modules of the application, such as user regi
 Executed the test cases manually and using automation tools. This involved testing different user interactions, data inputs, and system responses. All deviations from the expected results were logged as bugs.
 
 ## Collaboration and Communication
-
-### Daily Stand-ups
-
-Participated in daily stand-up meetings to discuss testing progress, blockers, and plan for the day.
-
-### Sprint Reviews
-
-Attended sprint review meetings to demonstrate the test results and discuss any issues or improvements.
-
-### Pair Testing
-
-Collaborated with developers in pair testing sessions to understand the code better and identify issues early.
+we held 
 
 ## Documentation and Reporting
-
-### Test Cases and Results
-
-Maintained detailed documentation of all test cases and their execution results.
-
-### Bug Reports
-
-Provided comprehensive bug reports with all necessary details for developers to reproduce and fix the issues.
-
-### Test Summary Reports
-
-Prepared test summary reports at the end of each sprint, summarizing the testing activities, bug status, and overall quality of the application.
 
 ## Conclusion
 

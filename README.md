@@ -28,7 +28,7 @@ The security manager in a school registration portal is responsible for ensuring
 
 ## Tools of a Security Manager
 
-### 1. Identity and Access Management (IAM) System
+### 1. Identifying and Accessing Management (IAM) System
 - Provides user authentication, authorization, and access control mechanisms.
 - Enables the creation and management of user accounts, roles, and permissions.
 

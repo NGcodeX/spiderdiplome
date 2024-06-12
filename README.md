@@ -44,6 +44,7 @@ we held several meetings both online(google meet) and onsite(in the school campu
 Collaborated closely with team member,including the Java developer Zebs, the scrum master Lateefah, the security manager Belinda, and the front-end developer Cindy. We worked hand in hand, both online and onsite, to ensure that all functionalities were thoroughly tested and that the required results were attained.
 
 ## Documentation and Reporting
+Prepared test summary reports at the end of each test summarizing the test activities and overall the quality of the application.
 
 ## Conclusion
 

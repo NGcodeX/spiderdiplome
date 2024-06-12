@@ -11,9 +11,8 @@ As a tester, my responsibilities included:
 - **Test Case Development:** Writing detailed test cases that cover all possible scenarios, including edge cases.
 - **Test Execution:** Performing manual and automated tests to ensure the application behaves as expected.
 - **Bug Reporting:** Identifying, documenting, and reporting bugs using issue tracking tools (e.g., JIRA, GitHub Issues).
-- **Regression Testing:** Re-running tests after bugs have been fixed to ensure that changes do not introduce new issues.
 - **Collaboration:** Working closely with developers and other team members to ensure smooth communication and efficient issue resolution.
-- **Documentation:** Maintaining detailed records of test activities, including test cases, test results, and bug reports.
+- **Documentation:** Maintaining detailed records of test activities, including test cases, test results.
 
 ## Tools and Technologies Used
 

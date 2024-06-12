@@ -32,23 +32,14 @@ The security manager in a school registration portal is responsible for ensuring
 - Provides user authentication, authorization, and access control mechanisms.
 - Enables the creation and management of user accounts, roles, and permissions.
 
-### 2. Security Information and Event Management (SIEM) System
-- Collects, analyzes, and correlates security-related data from various sources within the school's IT infrastructure.
-- Detects and alerts the security team about potential security incidents or anomalies.
-- Generates comprehensive reports.
 
-### 3. Vulnerability Scanning and Penetration Testing Tools
+### 2. Vulnerability Scanning and Penetration Testing Tools
 - Identify and assess vulnerabilities within the school registration portal and its underlying systems.
 - Perform simulated attacks to test the effectiveness of security controls and identify weaknesses.
 - Provide detailed reports with recommendations for remediation and improvement.
 
-### 4. Data Encryption and Backup Solutions
+### 4. Data Encryption and Backup Solutions (msqldump)
 - Implement encryption algorithms to protect sensitive data at rest and in transit.
 - Provide secure backup and recovery mechanisms to safeguard against data loss.
 
-### 5. Security Monitoring and Incident Response Tools
-- Monitor network traffic, system logs, and security events to detect and respond to security incidents.
 
-### 6. Security Awareness and Training Platform
-- Deliver interactive security training modules to educate students, faculty, and staff on security best practices.
-- Provide resources and communication channels to promote a culture of security.

@@ -17,11 +17,9 @@ As a tester, my responsibilities included:
 ## Tools and Technologies Used
 
 1. **JUnit:** For unit testing Java code to ensure that individual components function correctly.
-2. **Selenium:** For automating web application testing, ensuring that the UI behaves as expected.
 3. **Apache JMeter:** For performance and load testing to verify the application's scalability and performance under different conditions.
 4. **MySQL:** Database testing to ensure data integrity and proper functioning of database operations.
 5. **GitHub:** For version control and collaboration, ensuring all test scripts and documents are properly managed and shared among team members.
-6. **JIRA/GitHub Issues:** For tracking bugs and managing test tasks, ensuring all issues are documented and resolved efficiently.
 
 ## Test Plan and Execution
 
@@ -40,14 +38,6 @@ Developed test cases for different modules of the application, such as user regi
 ### Test Execution
 
 Executed the test cases manually and using automation tools. This involved testing different user interactions, data inputs, and system responses. All deviations from the expected results were logged as bugs.
-
-### Bug Reporting
-
-Used GitHub Issues to document each bug, providing detailed descriptions, steps to reproduce, screenshots, and severity levels. This facilitated clear communication with the development team for quick resolution.
-
-### Regression Testing
-
-After bug fixes, I performed regression testing to ensure that the fixes did not introduce new issues and that the application still met the requirements.
 
 ## Collaboration and Communication
 

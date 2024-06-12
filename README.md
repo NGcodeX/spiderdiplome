@@ -41,6 +41,7 @@ Executed the test cases manually and using automation tools. This involved testi
 
 ## Collaboration and Communication
 we held several meetings both online(google meet) and onsite(in the school campus).These meetings facilitated real-time updates and quick issue resolution.
+Collaborated closely with team member,including the Java developer Zebs, the scrum master Lateefah, the security manager Belinda, and the front-end developer Cindy. We worked hand in hand, both online and onsite, to ensure that all functionalities were thoroughly tested and that the required results were attained.
 
 ## Documentation and Reporting
 

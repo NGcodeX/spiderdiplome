@@ -39,7 +39,7 @@ Developed test cases for different modules of the application, such as user regi
 
 ### Test Execution
 
-Executed the test cases manually and using automation tools. This involved testing different user interactions, data inputs, and system responses. All deviations from the expected results were logged as bugs.
+Executed the test cases manually and using automation tools.This involved testing different user interactions, data inputs, and system responses. All deviations from the expected results were logged as bugs.
 
 ## Collaboration and Communication
 we held several meetings both online(google meet) and onsite(in the school campus).These meetings facilitated real-time updates and quick issue resolution.

@@ -18,11 +18,8 @@ The security manager in a school registration portal is responsible for ensuring
 - Configuring and maintaining firewalls, intrusion detection/prevention systems, and virtual private networks (VPNs) to secure the school's network infrastructure.
 - Monitoring network traffic and detecting any suspicious activities or potential threats.
 
-### 4. Compliance and Regulatory Oversight
-- Ensuring that the school's registration portal complies with relevant data privacy and security regulations, such as the Family Educational Rights and Privacy Act (FERPA) and the General Data Protection Regulation (GDPR).
-- Regularly reviewing and updating security policies and procedures to align with changing regulatory requirements.
 
-### 5. Security Awareness and Training
+### 4. Security Awareness and Training
 - Developing and delivering security awareness training programs for students, faculty, and staff to educate them on best practices for maintaining data privacy and information security.
 - Promoting a culture of security within the school by encouraging the reporting of security incidents.
 

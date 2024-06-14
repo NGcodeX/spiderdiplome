@@ -1,7 +1,7 @@
 # Documentation of the Role and Tools as a Tester for Student Registration Portal
 
 ## Introduction
-
+ 
 In this project, my primary role as a tester was to ensure the functionality, performance, and reliability of the student registration portal. This involved creating test plans, executing tests, identifying bugs, and verifying fixes.The goal was to ensure that the application meets the specified requirements and is free of defects before it is released.
 
 As a tester, my responsibilities included:

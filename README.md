@@ -8,6 +8,7 @@ The security manager in a school registration portal is responsible for ensuring
 - Implementing and managing the user authentication mechanisms, such as login credentials, multi-factor authentication, and role-based access controls.
 - Defining and enforcing user permissions and privileges based on their roles and responsibilities within the school.
 - Regularly reviewing and updating access control policies to ensure they align with the school's security requirements.
+  ![image](https://github.com/NGcodeX/spiderdiplome/blob/belinda_branch/security%20architecture%20work.jpg?raw=true)
 
 ### 2. Data Encryption and Protection
 - Ensuring that all sensitive data, including student records, financial information, and personal details, are stored and transmitted securely using encryption protocols.

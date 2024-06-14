@@ -20,6 +20,7 @@ As a tester, my responsibilities included:
 3. **Apache JMeter:** For performance and load testing to verify the application's scalability and performance under different conditions.
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/madian_branch/WhatsApp%20Image%202024-06-14%20at%2014.23.40_f4c7487f.jpg?raw=true)
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/madian_branch/WhatsApp%20Image%202024-06-14%20at%2015.28.07_bbfa8357.jpg?raw=true)
+   ![image](https://github.com/NGcodeX/spiderdiplome/blob/madian_branch/WhatsApp%20Image%202024-06-14%20at%2015.30.08_153170ea.jpg?raw=true)
 5. **MySQL:** Database testing to ensure data integrity and proper functioning of database operations.
 6. **GitHub:** For version control and collaboration, ensuring all test scripts and documents are properly managed and shared among team members.
 

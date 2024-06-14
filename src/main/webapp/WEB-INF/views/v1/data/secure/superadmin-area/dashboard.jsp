@@ -272,7 +272,7 @@
 			<div class="main-menu">
 				<ul>
 					<li class="active">
-						<a href="tableau-de-bord" class="menu-link">
+						<a href="tb-admin" class="menu-link">
 								<span class="menu-icon">
 									<i class="fa fa-dashboard fa-lg"></i>
 								</span>
@@ -401,7 +401,7 @@
 							</div>
 							<script>
 								document.getElementById('refreshButton').addEventListener('click', function () {
-									fetch('/tableau-de-bord', {
+									fetch('/tb-admin', {
 										method: 'GET',
 										headers: {
 											'Content-Type': 'application/json',
@@ -424,7 +424,7 @@
 					<a href="">
 					<div class="col-sm-6 col-md-3">
 						<div class="panel-stat3 bg-primary">
-							<h2 class="m-top-none"><span id="serverloadCount2">1</span></h2>
+							<h2 class="m-top-none"><span id="serverloadCount2">${fn:length(universite)}</span></h2>
 							<h5>Universités / Colleges partenaires Totals</h5>
 							<i class="fa fa-building-o fa-lg"></i> <span class="m-left-xs">Universités partenaires</span>
 							<div class="stat-icon">
@@ -805,9 +805,6 @@
 							</div><!-- /panel -->
 						</div>
 					</div><!-- /.col -->
-
-
-					
 					<div class="col-lg-4">
 						<div class="panel bg-info fadeInDown animation-delay4">
 							<div class="panel-body">

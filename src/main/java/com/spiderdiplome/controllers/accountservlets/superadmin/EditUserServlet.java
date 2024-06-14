@@ -72,6 +72,9 @@ public class EditUserServlet extends HttpServlet {
         String password = req.getParameter("password");
 
         Utilisateur existingUser = utilisateurDAO.findByMatricule(matricule);
+        if(existingUser != null){
+            System.out.println("User found: " + existingUser.getMatricule());
+        }
         if (existingUser == null) {
             setErrorAndRedirect(req, resp, "Aucun utilisateur avec ce matricule.");
             System.out.println("Aucun utilisateur avec ce matricule.");

@@ -1,28 +1,20 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>${user.getNom()}|Admin/Utilisateur</title>
+    <title>${user.getNom()}|Admission</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Font Awesome-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- Pace -->
     <link href="css/pace.css" rel="stylesheet">
-
-    <!-- Datatable -->
-    <link href="css/jquery.dataTables_themeroller.css" rel="stylesheet">
-
-    <!-- Perfect -->
+    <link href="css/colorbox/colorbox.css" rel="stylesheet">
+    <link href="css/morris.css" rel="stylesheet"/>
     <link href="css/app.min.css" rel="stylesheet">
     <link href="css/app-skin.css" rel="stylesheet">
 
@@ -35,7 +27,7 @@
 <a href="" id="theme-setting-icon"><i class="fa fa-cog fa-lg"></i></a>
 <div id="theme-setting">
     <div class="title">
-        <strong class="no-margin">Your school color</strong>
+        <strong class="no-margin">Votre couleur</strong>
     </div>
     <div class="theme-box">
         <a class="theme-color" style="background:#495B6C" id="skin-6"></a>
@@ -49,7 +41,7 @@
     <div id="top-nav" class="fixed skin-6">
         <a href="#" class="brand">
             <span>Spider</span>
-            <span class="text-toggle"> SChool</span>
+            <span class="text-toggle"> Diplome</span>
         </a><!-- /brand -->
         <button type="button" class="navbar-toggle pull-left" id="sidebarToggle">
             <span class="icon-bar"></span>
@@ -216,7 +208,7 @@
             </li>
             <li class="profile dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <strong>${user.getNom()}${user.getPrenom()}</strong>
+                    <strong>${user.getNom()}</strong>
                     <span><i class="fa fa-chevron-down"></i></span>
                 </a>
                 <ul class="dropdown-menu">
@@ -231,25 +223,23 @@
                     </li>
                     <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-edit fa-lg"></i> profile</a>
                     </li>
-                    <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-file-text-o fa-lg"></i>
-                        Grades</a></li>
+                    <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-money fa-lg"></i>
+                        Candidature</a></li>
                     <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-newspaper-o fa-lg"></i>
-                        Reports</a></li>
-                    <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-money fa-lg"></i> Wallet</a>
+                        Forum</a></li>
+                    <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-money fa-lg"></i> Compte
+                        money</a></li>
+                    <li><a tabindex="-1" href="#" class="theme-setting"><i class="fa fa-cogs fa-lg"></i> Parametre</a>
                     </li>
-                    <li><a tabindex="-1" href="#" class="theme-setting"><i class="fa fa-cogs fa-lg"></i> Setting</a>
-                    </li>
-                    <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-university"></i>
-                        Admission Infos</a></li>
-                    <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-key fa-lg"></i> Change
-                        PassWord</a></li>
-                    <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-life-ring"></i> basic
-                        knowledge</a></li>
-                    <li><a tabindex="-1" href="gallery.html" class="main-link"><i class="fa fa-picture-o fa-lg"></i>
-                        Photo Gallery</a></li>
+                    <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-university"></i> Spider
+                        Infos</a></li>
+                    <li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-life-ring"></i> Base
+                        Connaissance</a></li>
                     <li class="divider"></li>
                     <li><a tabindex="-1" class="main-link logoutConfirm_open" href="#logoutConfirm"><i
-                            class="fa fa-lock fa-lg"></i> Log out</a></li>
+                            class="fa fa-lock fa-lg"></i> Verrouillage</a></li>
+                    <li><a tabindex="-1" class="main-link logoutConfirm_open" href="#logoutConfirm"><i
+                            class="fa fa-lock fa-lg"></i> Deconnexion</a></li>
                 </ul>
             </li>
         </ul>
@@ -263,7 +253,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="btn btn-sm pull-right" href="lock_screen.html">
+                <a class="btn btn-sm pull-right" href="verrouiller">
                     <i class="fa fa-lock"></i>
                 </a>
                 <a class="btn btn-sm pull-right logoutConfirm_open" href="#logoutConfirm">
@@ -276,8 +266,8 @@
                     <strong>${user.getNom()} ${user.getPrenom()}</strong><span
                         class="badge badge-success m-left-xs bounceIn animation-delay4">Online</span>
                     <ul class="list-inline">
-                        <li><a href="#">Matricule:</a></li>
-                        <li><a href="#" class="no-margin">CM-${user.getMatricule()}</a></li>
+                        <li><a href="#">tempMat:</a></li>
+                        <li><a href="#" class="no-margin">${user.getMatricule()}</a></li>
                     </ul>
                 </div>
             </div><!-- /user-block -->
@@ -288,13 +278,13 @@
 							<button class="btn btn-default btn-sm" type="button"><i class="fa fa-search"></i></button>
 						</span>
                 </div><!-- /input-group -->
-            </div>
+            </div><!-- /search-block -->
             <div class="main-menu">
                 <ul>
                     <li class="active">
-                        <a href="tb-admin">
+                        <a href="tb-candidatpotentiel" class="menu-link">
 								<span class="menu-icon">
-									<i class="fa fa-dashboard fa-lg"></i> 
+									<i class="fa fa-dashboard fa-lg"></i>
 								</span>
                             <span class="text">
 									Tableau de Bord
@@ -303,23 +293,34 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="gestions-utilisateurs">
+                        <a href="adm-candidatpotentiel" class="menu-link">
 								<span class="menu-icon">
-									<i class="fa fa-user fa-lg"></i> 
+									<i class="fa fa-certificate fa-lg"></i>
 								</span>
                             <span class="text">
-									Utilisateurs
+									Admission
 								</span>
                             <span class="menu-hover"></span>
                         </a>
                     </li>
                     <li class="active">
-                        <a href="gestions-universites">
+                        <a href="cand-candidatpotentiel" class="menu-link" data-page="all-colleges">
 								<span class="menu-icon">
-									<i class="fa fa-building-o fa-lg"></i> 
+									<i class="fa fa-graduation-cap fa-lg"></i>
 								</span>
                             <span class="text">
-									Universities
+									Candidature
+								</span>
+                            <span class="menu-hover"></span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="gestions-utilisateurs" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-newspaper-o fa-lg"></i>
+								</span>
+                            <span class="text">
+									perte
 								</span>
                             <span class="menu-hover"></span>
                         </a>
@@ -337,40 +338,78 @@
         <div id="breadcrumb">
             <ul class="breadcrumb">
                 <li><i class="fa fa-home"></i><a href=""> Home</a></li>
-                <li class="active">Utilisateurs</li>
+                <li class="active">Etat Candidature</li>
             </ul>
         </div><!-- /breadcrumb-->
         <div class="padding-md">
             <div class="row">
                 <div class="col-md-3 col-sm-4">
-                    ${errorAdd}
-                    ${successAdd}
-                </div>
+                    <div class="panel panel-default panel-stat2">
+                        <div class="panel-body">
+								<span class="stat-icon">
+									<i class="fa fa-user"></i>
+								</span>
+                            <div class="pull-right text-right">
+                                <div class="value">45</div>
+                                <div class="title">Members</div>
+                            </div>
+                        </div>
+                    </div><!-- /panel -->
+                </div><!-- /.col -->
+                <div class="col-md-3 col-sm-4">
+                    <div class="panel panel-default panel-stat2 bg-primary">
+                        <div class="panel-body">
+								<span class="stat-icon">
+									<i class="fa fa-comment"></i>
+								</span>
+                            <div class="pull-right text-right">
+                                <div class="value">72</div>
+                                <div class="title"><small>Comments</small></div>
+                            </div>
+                        </div>
+                    </div><!-- /panel -->
+                </div><!-- /.col -->
+                <div class="col-md-2 col-sm-4">
+                    <div class="panel panel-default panel-stat1 bg-success">
+                        <div class="panel-body">
+                            <div class="value">12</div>
+                            <div class="title">
+                                <span class="m-left-xs">Bookings</span>
+                            </div>
+                        </div>
+                    </div><!-- /panel -->
+                </div><!-- /.col -->
+                <div class="col-md-2 col-sm-4">
+                    <div class="panel panel-default panel-stat1 bg-warning">
+                        <div class="panel-body">
+                            <div class="value">39</div>
+                            <div class="title">
+                                <span class="m-left-xs">Cancelled</span>
+                            </div>
+                        </div>
+                    </div><!-- /panel -->
+                </div><!-- /.col -->
+                <div class="col-md-2 col-sm-4">
+                    <div class="panel panel-default panel-stat1 bg-info">
+                        <div class="panel-body">
+                            <div class="value">51</div>
+                            <div class="title">
+                                <span class="m-left-xs"><small>New Items</small></span>
+                            </div>
+                        </div>
+                    </div><!-- /panel -->
+                </div><!-- /.col -->
             </div>
         </div>
         <div class="padding-md">
-            <a href="ajout-utilisateur" class="btn btn-success"><i class="fa fa-plus"></i> Ajouter Utilisateur</a>
-            <a class="btn btn-default" onclick="printTable()"><i class="fa fa-print"></i> Print</a>
-            <script>
-                function printTable() {
-                    var printWindow = window.open('', '', 'height=600,width=800');
-                    printWindow.document.write('<html><head><title>UTILISATEUR D APPLICATION SPIDER</title>');
-                    printWindow.document.write('</head><body>');
-                    printWindow.document.write('<h1>UTILISATEUR D APPLICATION SPIDER</h1>');
-                    printWindow.document.write(document.getElementById('dataTable').outerHTML);
-                    printWindow.document.write('</body></html>');
-                    printWindow.document.close();
-                    printWindow.print();
-                }
-            </script>
-            <a class="btn btn-danger"><i class="fa fa-download"></i> Export</a>
-            <a class="btn btn-primary"><i class="fa fa-upload"></i> Import</a>
             <div class="panel panel-default table-responsive">
                 <div class="panel-heading">
-                    Tous les utilisateurs
+                    Candidature en cours
                     <span class="label label-info pull-right">Tous les utilisateurs de Spider Diplome. vous pouvez ajouter, afficher, mettre à jour, supprimer des utilisateurs</span>
                 </div>
                 <div class="padding-md clearfix">
+                    ${errorAdd}
+                    ${successAdd}
                     <table class="table table-striped" id="dataTable">
                         <thead>
                         <tr>

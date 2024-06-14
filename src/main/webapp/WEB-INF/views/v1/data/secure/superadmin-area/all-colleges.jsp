@@ -280,7 +280,7 @@
 				<div class="main-menu">
 					<ul>
 						<li class="active">
-							<a href="tableau-de-bord">
+							<a href="tb-admin">
 								<span class="menu-icon">
 									<i class="fa fa-dashboard fa-lg"></i>
 								</span>

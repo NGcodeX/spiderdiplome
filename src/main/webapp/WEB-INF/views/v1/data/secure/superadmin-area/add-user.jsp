@@ -299,7 +299,7 @@
 				<div class="main-menu">
 					<ul>
 						<li class="active">
-							<a href="tableau-de-bord">
+							<a href="tb-admin">
 								<span class="menu-icon">
 									<i class="fa fa-dashboard fa-lg"></i> 
 								</span>
@@ -340,6 +340,14 @@
 		</aside>
 
 		<div id="main-container">
+			<div class="padding-md">
+				<div class="row">
+					<div class="col-md-3 col-sm-4">
+						${errorAdd}
+						${successAdd}
+					</div>
+				</div>
+			</div>
 			<div id="breadcrumb">
 				<ul class="breadcrumb">
 					<li><i class="fa fa-home"></i><a href="/"> Home</a></li>

@@ -38,7 +38,7 @@ public class ForgotPasswordServlet extends HttpServlet{
 
             switch (utilisateur.getRole()) {
                 case "superadmin":
-                    resp.sendRedirect("tableau-de-bord?st=" + session.getAttribute("token"));
+                    resp.sendRedirect("tb-admin?st=" + session.getAttribute("token"));
                     break;
                 case "user":
                     resp.sendRedirect("userPage.jsp");

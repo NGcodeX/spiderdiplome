@@ -158,7 +158,7 @@
 
                                         <div class="form-group">
                                             <label class="control-label">Telephone ou E-mail (Du tuteur Legal)</label>
-                                            <input type="text" id="phone" name="phoneEmail" required placeholder="Username"
+                                            <input type="text" id="phone" name="phoneEmail" required placeholder="Telephone ou Email"
                                                    class="form-control input-sm" data-required="true"
                                                    data-minlength="8">
                                         </div>

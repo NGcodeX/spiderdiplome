@@ -47,7 +47,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 
         switch (utilisateur.getRole()) {
             case "superadmin":
-                resp.sendRedirect("tableau-de-bord?st=" + session.getAttribute("token"));
+                resp.sendRedirect("tb-admin?st=" + session.getAttribute("token"));
                 break;
             case "user":
                 resp.sendRedirect("userPage.jsp");
@@ -73,12 +73,6 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
             forwardWithError(req, resp, "Matricule and password must not be empty");
             return;
         }
-
-        if (isUserAlreadyLoggedIn(req)) {
-            resp.sendRedirect("tableau-de-bord?st=" + req.getSession(false).getAttribute("token"));
-            return;
-        }
-
         try {
             if (authService.authenticate(matricule, password)) {
                 handleSuccessfulAuthentication(req, resp, matricule);
@@ -121,9 +115,9 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
     private String getRedirectUrl(Utilisateur utilisateur, String token) {
         switch (utilisateur.getRole()) {
             case "superadmin":
-                return "tableau-de-bord?st=" + token;
-            case "user":
-                return "userPage.jsp";
+                return "tb-admin?st=" + token;
+            case "candidatpotentiel":
+                return "tb-candidatpotentiel?st=" + token;
             default:
                 return "otherPage.jsp";
         }

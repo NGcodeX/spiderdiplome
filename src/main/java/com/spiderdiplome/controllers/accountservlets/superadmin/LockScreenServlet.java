@@ -85,7 +85,7 @@ public class LockScreenServlet extends HttpServlet {
     private String getRedirectUrl(Utilisateur utilisateur, String token) {
         switch (utilisateur.getRole()) {
             case "superadmin":
-                return "tableau-de-bord?st=" + token;
+                return "tb-admin?st=" + token;
             case "user":
                 return "userPage.jsp";
             default:

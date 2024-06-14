@@ -6,5 +6,8 @@
     ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%204.png?raw=true)
      ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%205.png?raw=true)
       ![image]()
+      ![image]()
+      ![image]()
+       ![image]()
       
     

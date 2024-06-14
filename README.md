@@ -12,7 +12,9 @@ The security manager in a school registration portal is responsible for ensuring
 ### 2. Data Encryption and Protection
 - Ensuring that all sensitive data, including student records, financial information, and personal details, are stored and transmitted securely using encryption protocols.
 - Implementing data backup and recovery procedures to safeguard against data loss.
-- Monitoring and addressing any data breaches.
+- Monitoring and addressing any data breaches
+  ![image](https://github.com/NGcodeX/spiderdiplome/blob/belinda_branch/WhatsApp%20Image%202024-06-14%20at%203.34.04%20PM.jpeg?raw=true)
+  
 
 ### 3. Network Security Management
 - Configuring and maintaining firewalls, intrusion detection/prevention systems, and virtual private networks (VPNs) to secure the school's network infrastructure.

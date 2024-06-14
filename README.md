@@ -19,8 +19,6 @@ As a tester, my responsibilities included:
 1. **JUnit:** For unit testing Java code to ensure that individual components function correctly.
 3. **Apache JMeter:** For performance and load testing to verify the application's scalability and performance under different conditions.
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/madian_branch/WhatsApp%20Image%202024-06-14%20at%2014.23.40_f4c7487f.jpg?raw=true)
-   ![image](https://github.com/NGcodeX/spiderdiplome/blob/madian_branch/WhatsApp%20Image%202024-06-14%20at%2015.28.07_bbfa8357.jpg?raw=true)
-   ![image](https://github.com/NGcodeX/spiderdiplome/blob/madian_branch/WhatsApp%20Image%202024-06-14%20at%2015.30.08_153170ea.jpg?raw=true)
 5. **MySQL:** Database testing to ensure data integrity and proper functioning of database operations.
 6. **GitHub:** For version control and collaboration, ensuring all test scripts and documents are properly managed and shared among team members.
 
@@ -29,7 +27,8 @@ As a tester, my responsibilities included:
 ### Requirement Analysis
 
 I reviewed the project requirements and user stories provided by the product owner. This helped in understanding the scope and critical functionalities of the student registration portal.
-
+![image](https://github.com/NGcodeX/spiderdiplome/blob/madian_branch/WhatsApp%20Image%202024-06-14%20at%2015.28.07_bbfa8357.jpg?raw=true)
+   
 ### Test Planning
 
 I created a detailed test plan that included the scope of testing, test objectives, resources, schedule, and deliverables. The test plan ensured all functionalities of the application would be tested comprehensively.
@@ -45,7 +44,7 @@ Executed the test cases manually and using automation tools. This involved testi
 ## Collaboration and Communication
 we held several meetings both online(google meet) and onsite(in the school campus).These meetings facilitated real-time updates and quick issue resolution.
 Collaborated closely with team member,including the Java developer Zebs, the scrum master Lateefah, the security manager Belinda, and the front-end developer Cindy. We worked hand in hand, both online and onsite, to ensure that all functionalities were thoroughly tested and that the required results were attained.
-
+![image](https://github.com/NGcodeX/spiderdiplome/blob/madian_branch/WhatsApp%20Image%202024-06-14%20at%2015.30.08_153170ea.jpg?raw=true)
 ## Documentation and Reporting
 Prepared test summary reports at the end of each test summarizing the test activities and overall the quality of the application.
 

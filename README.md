@@ -5,6 +5,8 @@
     
   ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%201.png?raw=true)
      The image provides information about the "WHO WE ARE" section of the SPIDER website. It explains that the team behind SPIDER is composed of former college admissions officers, high school counselors, and education technology experts who have come together to create a tool to simplify the college application process.
+
+     
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%203.png?raw=true)
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%204.png?raw=true)
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%205.png?raw=true)

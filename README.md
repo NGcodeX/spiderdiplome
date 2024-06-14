@@ -25,7 +25,8 @@
          The image outlines the pricing and plan options for the SPIDER platform. It presents three different plan tiers:
 
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%209.png?raw=true)
-          The image provides the contact information and options for users to get in touch with the SPIDER platform. The key elements are:
+          The image provides the contact information and options for users to get in touch with the SPIDER platform.
+          
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/footer.png?raw=true)
-      
+          The image presents the footer section of the SPIDER platform's website, which includes several key elements
     

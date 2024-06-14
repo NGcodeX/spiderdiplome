@@ -14,7 +14,7 @@ As a tester, my responsibilities included:
 - **Collaboration:** Working closely with developers and other team members to ensure smooth communication and efficient issue resolution.
 - **Documentation:** Maintaining detailed records of test activities, including test cases, test results.
 
-## Tools and Technologies Used 
+## Tools and Technologies Used  
 
 1. **JUnit:** For unit testing Java code to ensure that individual components function correctly.
 3. **Apache JMeter:** For performance and load testing to verify the application's scalability and performance under different conditions.

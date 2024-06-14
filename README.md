@@ -20,7 +20,10 @@
          
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%207.png?raw=true)
           The image outlines the key services offered by the SPIDER platform, focusing on "Effortless college research."
+          
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%208.png?raw=true)
+         The image outlines the pricing and plan options for the SPIDER platform. It presents three different plan tiers:
+
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%209.png?raw=true)
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/footer.png?raw=true)
       

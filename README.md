@@ -23,10 +23,6 @@ The security manager in a school registration portal is responsible for ensuring
   ![image](https://github.com/NGcodeX/spiderdiplome/blob/belinda_branch/WhatsApp%20Image%202024-06-14%20at%203.46.33%20PM.jpeg?raw=true)
 
 
-### 4. Security Awareness and Training
-- Developing and delivering security awareness training programs for students, faculty, and staff to educate them on best practices for maintaining data privacy and information security.
-- Promoting a culture of security within the school by encouraging the reporting of security incidents.
-
 ## Tools of a Security Manager
 
 ### 1. Identifying and Accessing Management (IAM) System

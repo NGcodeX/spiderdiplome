@@ -14,7 +14,9 @@
    
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%205.png?raw=true)
         The image provides an overview of the key features and benefits of the SPIDER platform for college applications. The main message at the bottom states "Make the utmost use of your smart phones", emphasizing the platform's mobile-friendly nature and accessibility.
+        
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%206.png?raw=true)
+         The image highlights the mobile-friendly nature of the SPIDER platform, with the main message stating "Make the utmost use of your smart phones." The illustration features a large smartphone as the central focus, surrounded by various icons and elements suggestive of the platform's features and functionality.
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%207.png?raw=true)
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%208.png?raw=true)
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%209.png?raw=true)

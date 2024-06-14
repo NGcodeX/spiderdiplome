@@ -13,6 +13,7 @@
    The image provides an overview of the key features and statistics of the SPIDER platform. The main message is "Unlock a world of college applications", highlighting the platform's ability to provide comprehensive resources and tools for the college application process.
    
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%205.png?raw=true)
+        The image provides an overview of the key features and benefits of the SPIDER platform for college applications. The main message at the bottom states "Make the utmost use of your smart phones", emphasizing the platform's mobile-friendly nature and accessibility.
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%206.png?raw=true)
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%207.png?raw=true)
    ![image](https://github.com/NGcodeX/spiderdiplome/blob/cindy_branch/front%20end%20preview/page%208.png?raw=true)

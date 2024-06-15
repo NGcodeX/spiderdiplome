@@ -56,5 +56,6 @@ We welcome feedback from stakeholders, users, and the development community. If 
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/1.PNG?raw=true)
 
 ## License
+
 This project is licensed under the [MIT License](LICENSE), which allows for free use, modification, and distribution of the software.
 

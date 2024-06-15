@@ -1,6 +1,7 @@
 <div align="center">
 
   ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/javaee.png?raw=true)
+  
 </div>
 
 ## Groupe members Goupe-9 OOA:

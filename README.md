@@ -1,6 +1,6 @@
 # Security Manager
 
-the security manager in a school registration portal is responsible for ensuring he overall security and integrity of the system.I as the security manager i am in charge of overseeing the implementation and maintenance of various security measures to protect the sensitive data of students, faculty, and staff. my responsibilities includes:
+the security manager in a school registration portal is responsible for ensuring the overall security and integrity of the system.I as the security manager i am in charge of overseeing the implementation and maintenance of various security measures to protect the sensitive data of students, faculty, and staff. my responsibilities includes:
 
 ## Responsibilities
 

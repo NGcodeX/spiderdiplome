@@ -29,7 +29,7 @@ the security manager in a school registration portal is responsible for ensuring
 ### 1. Identifying and Accessing Management (IAM) System
 - Provides user authentication, authorization, and access control mechanisms.
 - Enables the creation and management of user accounts, roles, and permissions.
-
+  [image](https://github.com/NGcodeX/spiderdiplome/blob/belinda_branch/security%20architecture%20work.jpg?raw=true)
 
 ### 2. Vulnerability Scanning and Penetration Testing Tools
 - Identify and access vulnerabilities within the school registration portal and its underlying systems.

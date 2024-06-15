@@ -50,6 +50,7 @@ To get started with the Student Registration Portal, follow these steps:
 We welcome feedback from stakeholders, users, and the development community. If you have any suggestions, feature requests, or bug reports, please submit them via the project's issue tracker. Additionally, contributions are encouraged! If you'd like to contribute code, documentation, or other improvements, please follow the project's contribution guidelines outlined in the `CONTRIBUTING.md` file.
 
 ## Security Hashing Algorithme
+
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/55.PNG?raw=true)
 
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/1.PNG?raw=true)

@@ -304,23 +304,34 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="cand-candidatpotentiel" class="menu-link" data-page="all-colleges">
+                        <a href="#" class="menu-link">
 								<span class="menu-icon">
-									<i class="fa fa-graduation-cap fa-lg"></i>
+									<i class="fa fa-newspaper-o fa-lg"></i>
 								</span>
                             <span class="text">
-									Candidature
+									Perte-Diplome
 								</span>
                             <span class="menu-hover"></span>
                         </a>
                     </li>
                     <li class="active">
-                        <a href="gestions-utilisateurs" class="menu-link">
+                        <a href="#" class="menu-link">
 								<span class="menu-icon">
-									<i class="fa fa-newspaper-o fa-lg"></i>
+									<i class="fa fa-picture-o fa-lg"></i>
 								</span>
                             <span class="text">
-									perte
+									Carte d'Identité
+								</span>
+                            <span class="menu-hover"></span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-briefcase fa-lg"></i>
+								</span>
+                            <span class="text">
+									FNE Travail
 								</span>
                             <span class="menu-hover"></span>
                         </a>
@@ -335,201 +346,14 @@
     </aside>
 
     <div id="main-container">
-        <div id="breadcrumb">
-            <ul class="breadcrumb">
-                <li><i class="fa fa-home"></i><a href=""> Home</a></li>
-                <li class="active">Etat Candidature</li>
-            </ul>
-        </div><!-- /breadcrumb-->
-        <div class="padding-md">
-            <div class="row">
-                <div class="col-md-3 col-sm-4">
-                    <div class="panel panel-default panel-stat2">
-                        <div class="panel-body">
-								<span class="stat-icon">
-									<i class="fa fa-user"></i>
-								</span>
-                            <div class="pull-right text-right">
-                                <div class="value">45</div>
-                                <div class="title">Members</div>
-                            </div>
-                        </div>
-                    </div><!-- /panel -->
-                </div><!-- /.col -->
-                <div class="col-md-3 col-sm-4">
-                    <div class="panel panel-default panel-stat2 bg-primary">
-                        <div class="panel-body">
-								<span class="stat-icon">
-									<i class="fa fa-comment"></i>
-								</span>
-                            <div class="pull-right text-right">
-                                <div class="value">72</div>
-                                <div class="title"><small>Comments</small></div>
-                            </div>
-                        </div>
-                    </div><!-- /panel -->
-                </div><!-- /.col -->
-                <div class="col-md-2 col-sm-4">
-                    <div class="panel panel-default panel-stat1 bg-success">
-                        <div class="panel-body">
-                            <div class="value">12</div>
-                            <div class="title">
-                                <span class="m-left-xs">Bookings</span>
-                            </div>
-                        </div>
-                    </div><!-- /panel -->
-                </div><!-- /.col -->
-                <div class="col-md-2 col-sm-4">
-                    <div class="panel panel-default panel-stat1 bg-warning">
-                        <div class="panel-body">
-                            <div class="value">39</div>
-                            <div class="title">
-                                <span class="m-left-xs">Cancelled</span>
-                            </div>
-                        </div>
-                    </div><!-- /panel -->
-                </div><!-- /.col -->
-                <div class="col-md-2 col-sm-4">
-                    <div class="panel panel-default panel-stat1 bg-info">
-                        <div class="panel-body">
-                            <div class="value">51</div>
-                            <div class="title">
-                                <span class="m-left-xs"><small>New Items</small></span>
-                            </div>
-                        </div>
-                    </div><!-- /panel -->
-                </div><!-- /.col -->
-            </div>
-        </div>
-        <div class="padding-md">
-            <div class="panel panel-default table-responsive">
-                <div class="panel-heading">
-                    Candidature en cours
-                    <span class="label label-info pull-right">Tous les utilisateurs de Spider Diplome. vous pouvez ajouter, afficher, mettre à jour, supprimer des utilisateurs</span>
-                </div>
-                <div class="padding-md clearfix">
-                    ${errorAdd}
-                    ${successAdd}
-                    <table class="table table-striped" id="dataTable">
-                        <thead>
-                        <tr>
-                            <th>Matricule</th>
-                            <th>Full Name</th>
-                            <th>Role</th>
-                            <th>Mobile</th>
-                            <th>E-mail</th>
-                            <th>Join-Date</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                            <th>-</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="users" items="${users}">
-                            <tr>
-                                <th>${users.matricule}</th>
-                                <th>${users.nom} ${users.prenom}</th>
-                                <td>${users.role}</td>
-                                <th>${users.phone}</th>
-                                <td>${users.email}</td>
-                                <td><fmt:formatDate value="${users.dateInscription}" pattern="yyyy-MM-dd"/></td>
-                                <c:choose>
-                                    <c:when test="${users.statut == 1}">
-                                        <th><span class="label label-success">Actif</span></th>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <th><span class="label label-danger">Inactif</span></th>
-                                    </c:otherwise>
-                                </c:choose>
-                                <td style="font-size: 20px;">
-                                    <a href="#" onclick="viewUser('${users.matricule}')"><i
-                                            class="fa fa-info-circle"></i></a>
-                                    <a href="#" onclick="editUser('${users.matricule}')"><i class="fa fa-edit"></i></a>
-                                    <a href="#" onclick="pauseUser('${users.matricule}')"><i
-                                            class="fa fa-pause"></i></a>
-                                    <a href="#" onclick="signInUser('${users.matricule}')"><i class="fa fa-sign-in"></i></a>
-                                    <i class="fa fa-trash-o" onclick="deleteUser('${users.matricule}')"></i>
-                                </td>
-                                <td>Secure</td>
-                            </tr>
-                        </c:forEach>
-                        <script>
-                            function viewUser(matricule) {
-                                window.location.href = 'Voir-utilisateur?matricule=' + encodeURIComponent(matricule);
-                            }
 
-                            function editUser(matricule) {
-                                window.location.href = 'editer-utilisateur?matricule=' + encodeURIComponent(matricule);
-                            }
 
-                            function pauseUser(matricule) {
-                                // Implement your logic here
-                                // For example, you might want to make a fetch request to a server-side route that handles the "pause" action
-                                fetch('pause-utilisateur', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/x-www-form-urlencoded',
-                                    },
-                                    body: 'matricule=' + encodeURIComponent(matricule),
-                                })
-                                    .then(response => {
-                                        if (!response.ok) {
-                                            throw new Error('Network response was not ok');
-                                        }
-                                        location.reload();
-                                    })
-                                    .catch(error => {
-                                        console.error('There has been a problem with your fetch operation:', error);
-                                    });
-                            }
 
-                            function signInUser(matricule) {
-                                // Implement your logic here
-                                // For example, you might want to make a fetch request to a server-side route that handles the "sign in" action
-                                fetch('sign-in-utilisateur', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/x-www-form-urlencoded',
-                                    },
-                                    body: 'matricule=' + encodeURIComponent(matricule),
-                                })
-                                    .then(response => {
-                                        if (!response.ok) {
-                                            throw new Error('Network response was not ok');
-                                        }
-                                        location.reload();
-                                    })
-                                    .catch(error => {
-                                        console.error('There has been a problem with your fetch operation:', error);
-                                    });
-                            }
 
-                            function deleteUser(matricule) {
-                                fetch('supprimer-utilisateur', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/x-www-form-urlencoded',
-                                    },
-                                    body: 'matricule=' + encodeURIComponent(matricule),
-                                })
-                                    .then(response => {
-                                        if (!response.ok) {
-                                            throw new Error('Network response was not ok');
-                                        }
-                                        location.reload();
-                                    })
-                                    .catch(error => {
-                                        console.error('There has been a problem with your fetch operation:', error);
-                                    });
-                            }
-                        </script>
-                        </tbody>
-                    </table>
-                </div><!-- /.padding-md -->
-            </div><!-- /panel -->
-        </div><!-- /.padding-md -->
-    </div><!-- /main-container -->
-</div><!-- /wrapper -->
+
+    </div>
+
+</div>
 
 <a href="" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
 

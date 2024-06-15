@@ -11,20 +11,20 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
+
 	<!-- Font Awesome-->
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- Pace -->
 	<link href="css/pace.css" rel="stylesheet">
-	
+
 	<!-- Datatable -->
 	<link href="css/jquery.dataTables_themeroller.css" rel="stylesheet">
-	
+
 	<!-- Perfect -->
 	<link href="css/app.min.css" rel="stylesheet">
 	<link href="css/app-skin.css" rel="stylesheet">
-	
+
   </head>
 
   <body class="overflow-hidden">
@@ -312,6 +312,50 @@
 								<span class="menu-hover"></span>
 							</a>
 						</li>
+						<li class="active">
+							<a href="#" class="menu-link" data-page="all-colleges">
+								<span class="menu-icon">
+									<i class="fa fa-graduation-cap fa-lg"></i>
+								</span>
+								<span class="text">
+									Admissions
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+						</li>
+						<li class="active">
+							<a href="#" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-newspaper-o fa-lg"></i>
+								</span>
+								<span class="text">
+									Perte-Diplome
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+						</li>
+						<li class="active">
+							<a href="#" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-picture-o fa-lg"></i>
+								</span>
+								<span class="text">
+									Carte d'Identité
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+						</li>
+						<li class="active">
+							<a href="#" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-briefcase fa-lg"></i>
+								</span>
+								<span class="text">
+									FNE Travail
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+						</li>
 					</ul>
 					<div class="alert alert-info">
 						Bienvenue a Spider Diplome. n'oublié pas de nous soutenir afin de rendre la digitalisation accessible pour tous
@@ -328,7 +372,7 @@
 				</ul>
 			</div><!-- /breadcrumb-->
 			<div class="padding-md">
-				<a href="add-college.jsp" class="btn btn-success"><i class="fa fa-plus"></i> Add college</a>
+				<a href="ajout-college" class="btn btn-success"><i class="fa fa-plus"></i> Add college</a>
 				<a class="btn btn-default"><i class="fa fa-print"></i> Print List</a>
 				<a class="btn btn-danger"><i class="fa fa-download"></i> Export List</a>
 				<a class="btn btn-primary"><i class="fa fa-upload"></i> Import List</a>
@@ -344,7 +388,6 @@
 							<tr>
 								<th>Name</th>
 								<th>Location</th>
-								<th>Description</th>
 								<th>Website</th>
 								<th>Contact</th>
 								<th>Postal</th>
@@ -358,16 +401,20 @@
 								<tr>
 									<td>${universite.nom}</td>
 									<td>${universite.emplacement}</td>
-									<td>${universite.description}</td>
 									<td>${universite.site_web}</td>
 									<td>${universite.numero_contact}</td>
 									<td>${universite.adresse_postale}</td>
 									<td>${universite.type_universite}</td>
-									<td>${universite.statut}</td>
-									<td>
-										<a href="view-college.jsp"><i class="fa fa-info-circle"></i></a>
+									<c:choose>
+										<c:when test="${universite.statut == 'active'}">
+											<th><span class="label label-success">Actif</span></th>
+										</c:when>
+										<c:otherwise>
+											<th><span class="label label-danger">Inactive</span></th>
+										</c:otherwise>
+									</c:choose>
+									<td style="font-size: 15px;">
 										<a href="edit-college.jsp"><i class="fa fa-edit"></i></a>
-										<i class="fa fa-pause"></i>
 										<a href="#"><i class="fa fa-sign-in"></i></a>
 										<i class="fa fa-trash-o"></i>
 									</td>
@@ -382,7 +429,7 @@
 	</div><!-- /wrapper -->
 
 	<a href="" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
-	
+
 	<!-- Logout confirmation -->
 	<div class="custom-popup width-100" id="logoutConfirm">
 		<div class="padding-md">
@@ -394,45 +441,45 @@
 			<a class="btn btn-danger logoutConfirm_close">Non Rester</a>
 		</div>
 	</div>
-	
+
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-	
+
 	<!-- Jquery -->
 	<script src="js/jquery-1.10.2.min.js"></script>
-	
+
 	<!-- Bootstrap -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
- 
+
 	<!-- Datatable -->
-	<script src='js/jquery.dataTables.min.js'></script>	
-	
+	<script src='js/jquery.dataTables.min.js'></script>
+
 	<!-- Modernizr -->
 	<script src='js/modernizr.min.js'></script>
-	
+
 	<!-- Pace -->
 	<script src='js/pace.min.js'></script>
-	
+
 	<!-- Popup Overlay -->
 	<script src='js/jquery.popupoverlay.min.js'></script>
-	
+
 	<!-- Slimscroll -->
 	<script src='js/jquery.slimscroll.min.js'></script>
-	
+
 	<!-- Cookie -->
 	<script src='js/jquery.cookie.min.js'></script>
 
 	<!-- Perfect -->
 	<script src="js/app/app.js"></script>
-	
+
 	<script>
 		$(function	()	{
 			$('#dataTable').dataTable( {
 				"bJQueryUI": true,
 				"sPaginationType": "full_numbers"
 			});
-			
+
 			$('#chk-all').click(function()	{
 				if($(this).is(':checked'))	{
 					$('#responsiveTable').find('.chk-row').each(function()	{
@@ -449,6 +496,6 @@
 			});
 		});
 	</script>
-	
+
   </body>
 </html>

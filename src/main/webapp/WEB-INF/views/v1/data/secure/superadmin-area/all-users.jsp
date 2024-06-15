@@ -324,6 +324,50 @@
                             <span class="menu-hover"></span>
                         </a>
                     </li>
+                    <li class="active">
+                        <a href="#" class="menu-link" data-page="all-colleges">
+								<span class="menu-icon">
+									<i class="fa fa-graduation-cap fa-lg"></i>
+								</span>
+                            <span class="text">
+									Admissions
+								</span>
+                            <span class="menu-hover"></span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-newspaper-o fa-lg"></i>
+								</span>
+                            <span class="text">
+									Perte-Diplome
+								</span>
+                            <span class="menu-hover"></span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-picture-o fa-lg"></i>
+								</span>
+                            <span class="text">
+									Carte d'Identité
+								</span>
+                            <span class="menu-hover"></span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-briefcase fa-lg"></i>
+								</span>
+                            <span class="text">
+									FNE Travail
+								</span>
+                            <span class="menu-hover"></span>
+                        </a>
+                    </li>
                 </ul>
                 <div class="alert alert-info">
                     Bienvenue a Spider Diplome. n'oublié pas de nous soutenir afin de rendre la digitalisation
@@ -517,16 +561,6 @@
 <a href="" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
 
 <!-- Logout confirmation -->
-<div class="custom-popup width-100" id="logoutConfirm">
-    <div class="padding-md">
-        <h4 class="m-top-none"> Voulez vous vous deconncter de Spider Diplome??</h4>
-    </div>
-
-    <div class="text-center">
-        <a class="btn btn-success m-right-sm" href="deconnexion">deconnexion</a>
-        <a class="btn btn-danger logoutConfirm_close">Non Rester</a>
-    </div>
-</div>
 <div class="custom-popup width-100" id="deleteConfirm">
     <div class="padding-md">
         <h4 class="m-top-none"> Voulez Vous vraiment supprimer cette utilisateur???</h4>

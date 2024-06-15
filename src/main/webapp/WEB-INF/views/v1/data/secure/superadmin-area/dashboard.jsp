@@ -321,7 +321,29 @@
 									<i class="fa fa-newspaper-o fa-lg"></i>
 								</span>
 							<span class="text">
-									pertes
+									Perte-Diplome
+								</span>
+							<span class="menu-hover"></span>
+						</a>
+					</li>
+					<li class="active">
+						<a href="#" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-picture-o fa-lg"></i>
+								</span>
+							<span class="text">
+									Carte d'Identité
+								</span>
+							<span class="menu-hover"></span>
+						</a>
+					</li>
+					<li class="active">
+						<a href="#" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-briefcase fa-lg"></i>
+								</span>
+							<span class="text">
+									FNE Travail
 								</span>
 							<span class="menu-hover"></span>
 						</a>

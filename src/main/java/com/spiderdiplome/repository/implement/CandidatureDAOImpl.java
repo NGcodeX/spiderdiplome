@@ -1,5 +1,6 @@
 package com.spiderdiplome.repository.implement;
 
+import com.spiderdiplome.database.DatabaseConnection;
 import com.spiderdiplome.models.Candidature;
 import com.spiderdiplome.repository.dao.CandidatureDAO;
 
@@ -11,18 +12,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CandidatureDAOImpl implements CandidatureDAO {
-    private Connection connection;
 
-    public CandidatureDAOImpl(Connection connection) {
-        this.connection = connection;
-    }
 
     @Override
     public List<Candidature> findAll() {
         List<Candidature> candidatures = new ArrayList<>();
         String sql = "SELECT * FROM Candidatures";
 
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = DatabaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Candidature candidature = new Candidature();
+                candidature.setId(resultSet.getInt("id"));
+                candidature.setUtilisateurId(resultSet.getInt("utilisateurId"));
+                candidature.setUniversiteId(resultSet.getInt("universiteId"));
+                candidature.setDateSoumission(resultSet.getTimestamp("dateSoumission"));
+                candidature.setStatut(resultSet.getString("statut"));
+                candidature.setDateExamen(resultSet.getDate("dateExamen"));
+                candidature.setScoreExamen(resultSet.getBigDecimal("scoreExamen"));
+                candidature.setDateEntretien(resultSet.getDate("dateEntretien"));
+                candidature.setScoreEntretien(resultSet.getBigDecimal("scoreEntretien"));
+                candidature.setDateDecisionFinale(resultSet.getDate("dateDecisionFinale"));
+                candidature.setDecisionFinale(resultSet.getString("decisionFinale"));
+                candidature.setCommentaire(resultSet.getString("commentaire"));
+                candidature.setFraisApplication(resultSet.getBigDecimal("fraisApplication"));
+                candidature.setaPayer(resultSet.getBoolean("aPayer"));
+                candidature.setaPayerAvant(resultSet.getDate("aPayerAvant"));
+                candidature.setaPayerMontant(resultSet.getBigDecimal("aPayerMontant"));
+                candidature.setaPayerMethode(resultSet.getString("aPayerMethode"));
+                candidature.setaPayerStatut(resultSet.getString("aPayerStatut"));
+                candidature.setaPayerDate(resultSet.getTimestamp("aPayerDate"));
+                candidature.setaPayerTransactionId(resultSet.getString("aPayerTransactionId"));
+
+                candidatures.add(candidature);
+            }
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la récupération des candidatures : " + e.getMessage());
+        }
+
+        return candidatures;
+    }
+
+    @Override
+    public List<Candidature> findByUserId(int utilisateurId) {
+        List<Candidature> candidatures = new ArrayList<>();
+        String sql = "SELECT * FROM Candidatures WHERE utilisateurId = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, utilisateurId);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -62,7 +100,7 @@ public class CandidatureDAOImpl implements CandidatureDAO {
         Candidature candidature = null;
         String sql = "SELECT * FROM Candidatures WHERE id = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = DatabaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
 
@@ -100,7 +138,7 @@ public class CandidatureDAOImpl implements CandidatureDAO {
     public void save(Candidature candidature) {
         String sql = "INSERT INTO Candidatures (utilisateurId, universiteId, statut, dateExamen, scoreExamen, dateEntretien, scoreEntretien, dateDecisionFinale, decisionFinale, commentaire, fraisApplication, aPayer, aPayerAvant, aPayerMontant, aPayerMethode, aPayerStatut, aPayerDate, aPayerTransactionId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = DatabaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, candidature.getUtilisateurId());
             statement.setInt(2, candidature.getUniversiteId());
             statement.setString(3, candidature.getStatut());
@@ -130,7 +168,7 @@ public class CandidatureDAOImpl implements CandidatureDAO {
     public void update(Candidature candidature) {
         String sql = "UPDATE Candidatures SET utilisateurId = ?, universiteId = ?, statut = ?, dateExamen = ?, scoreExamen = ?, dateEntretien = ?, scoreEntretien = ?, dateDecisionFinale = ?, decisionFinale = ?, commentaire = ?, fraisApplication = ?, aPayer = ?, aPayerAvant = ?, aPayerMontant = ?, aPayerMethode = ?, aPayerStatut = ?, aPayerDate = ?, aPayerTransactionId = ? WHERE id = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = DatabaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, candidature.getUtilisateurId());
             statement.setInt(2, candidature.getUniversiteId());
             statement.setString(3, candidature.getStatut());
@@ -161,7 +199,7 @@ public class CandidatureDAOImpl implements CandidatureDAO {
     public void delete(Candidature candidature) {
         String sql = "DELETE FROM Candidatures WHERE id = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = DatabaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, candidature.getId());
 
             statement.executeUpdate();

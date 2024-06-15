@@ -304,6 +304,28 @@
 							<span class="menu-hover"></span>
 						</a>
 					</li>
+					<li class="active">
+						<a href="#" class="menu-link" data-page="all-colleges">
+								<span class="menu-icon">
+									<i class="fa fa-graduation-cap fa-lg"></i>
+								</span>
+							<span class="text">
+									Admissions
+								</span>
+							<span class="menu-hover"></span>
+						</a>
+					</li>
+					<li class="active">
+						<a href="#" class="menu-link">
+								<span class="menu-icon">
+									<i class="fa fa-newspaper-o fa-lg"></i>
+								</span>
+							<span class="text">
+									pertes
+								</span>
+							<span class="menu-hover"></span>
+						</a>
+					</li>
 				</ul>
 				<div class="alert alert-info">
 					Bienvenue a Spider Diplome. n'oublié pas de nous soutenir afin de rendre la digitalisation accessible pour tous
@@ -326,6 +348,18 @@
 				</div><!-- /page-title -->
 				
 				<ul class="page-stats">
+					<li>
+						<div class="value">
+							<span>Faire un</span>
+							<h4><a class="btn btn-success"><i class="fa fa-money fa-lg"></i> Depot</a></h4>
+						</div>
+					</li>
+					<li>
+						<div class="value">
+							<span>Faire un</span>
+							<h4><a class="btn btn-success"><i class="fa fa-money fa-lg"></i> Retrait</a></h4>
+						</div>
+					</li>
 			    	<li>
 			    		<div class="value">
 			    			<span>Staff Internes</span>
@@ -441,7 +475,7 @@
 					</a>
 					<div class="col-sm-6 col-md-3">
 						<div class="panel-stat3 bg-info">
-							<h2 class="m-top-none"><span id="serverloadCount3">10</span></h2>
+							<h2 class="m-top-none"><span id="serverloadCount3">${fn:length(autoritessignataire)}</span></h2>
 							<h5>Autorités signataires Total</h5>
 							<i class="fa fa-arrow-circle-o-up fa-lg"></i><span class="m-left-xs">Nombres d autorités Signataires</span>
 							<div class="stat-icon">
@@ -907,19 +941,36 @@
 
 </div>
 
+<!-- Footer
+================================================== -->
+<footer>
+	<div class="row">
+		<div class="col-sm-6">
+					<span class="footer-brand">
+						<strong class="text-danger">Spider</strong> Diplome
+					</span>
+			<p class="no-margin">
+				&copy; 2013 <strong>NGcodeX</strong>. ALL Rights Reserved.
+			</p>
+		</div><!-- /.col -->
+	</div><!-- /.row-->
+</footer>
+
+
 <a href="" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
 
 <!-- Logout confirmation -->
 <div class="custom-popup width-100" id="logoutConfirm">
 	<div class="padding-md">
-		<h4 class="m-top-none"> Voulez vous vous deconncter de Spider Diplome??</h4>
+		<h4 class="m-top-none"> Vous êtes sur le point de vous déconnecter de l'application. veuillez confirmer cette action</h4>
 	</div>
 
 	<div class="text-center">
-		<a class="btn btn-success m-right-sm" href="deconnexion">deconnexion</a>
-		<a class="btn btn-danger logoutConfirm_close">Non Rester</a>
+		<a class="btn btn-success m-right-sm" href="deconnexion">deconnection</a>
+		<a class="btn btn-danger logoutConfirm_close">Non rester</a>
 	</div>
 </div>
+
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

@@ -92,7 +92,7 @@
                     <script>
                         document.getElementById('matricule').addEventListener('input', function (e) {
                             // Regex pour les caractères de A à Z (majuscules et minuscules) et les chiffres de 0 à 9
-                            var regex = /^[A-Za-z0-9]+$/;
+                            var regex = /^[A-Za-z0-9@.]+$/;
 
                             // Si la valeur de l'entrée ne correspond pas à la regex ou contient un espace, supprimez le dernier caractère
                             if (!regex.test(e.target.value) || e.target.value.includes(' ')) {

@@ -63,16 +63,30 @@ public class EditUserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String status = req.getParameter("status");
-        String role = req.getParameter("role");
-        String matricule = req.getParameter("matricule");
-        String firstName = req.getParameter("firstName");
-        String lastName = req.getParameter("lastName");
-        String phoneEmail = req.getParameter("phoneEmail");
-        String password = req.getParameter("password");
+        String status = req.getParameter("statuss");
+        String role = req.getParameter("roless");
+        String matricule = req.getParameter("matricules");
+        String firstName = req.getParameter("firstNames");
+        String lastName = req.getParameter("lastNames");
+        String phoneEmail = req.getParameter("phoneEmails");
+        String password = req.getParameter("passwords");
+
+        System.out.println("role: " + role);
+        System.out.println("matricule: " + matricule);
+        System.out.println("firstName: " + firstName);
+        System.out.println("lastName: " + lastName);
+        System.out.println("phoneEmail: " + phoneEmail);
+        System.out.println("password: " + password);
 
         Utilisateur existingUser = utilisateurDAO.findByMatricule(matricule);
         if(existingUser != null){
+            if(password == null){
+                password = existingUser.getMotDePasse();
+            }else{
+                String salt = passwordHashing.generateSalt();
+                String hashedPassword = this.passwordHashing.hash(password, salt);
+                password = hashedPassword;
+            }
             System.out.println("User found: " + existingUser.getMatricule());
         }
         if (existingUser == null) {
@@ -82,10 +96,14 @@ public class EditUserServlet extends HttpServlet {
         }
 
         int statusbd = getStatus(status);
+        System.out.println("status: " + statusbd);
 
         try {
-            existingUser = updateUser(existingUser, phoneEmail, statusbd, role, firstName, lastName, password);
-            utilisateurDAO.update(existingUser);
+            System.out.println("Mise a jour encours...");
+            Utilisateur newexistingUser = updateUser(existingUser, phoneEmail, statusbd, role, firstName, lastName, password);
+            System.out.println("newexistingUser: " + newexistingUser.getMatricule());
+            System.out.println("user password: " + newexistingUser.getMotDePasse());
+            utilisateurDAO.update(newexistingUser);
             System.out.println("Le compte a été mis à jour avec succès !");
             setSuccessAndRedirect(req, resp, "Le compte a été mis à jour avec succès !");
         } catch (Exception e) {
@@ -106,20 +124,14 @@ public class EditUserServlet extends HttpServlet {
         user.setRole(role);
         user.setNom(firstName);
         user.setPrenom(lastName);
-        if (password != null) {
-            String hashedPassword = this.passwordHashing.hash(password, salt);
-            if (hashedPassword == null) {
-                throw new Exception("Erreur lors du hachage du mot de passe");
-            }
-            user.setMotDePasse(hashedPassword);
-            user.setSalt(salt);
-        }
+        user.setMotDePasse(password);
+        user.setSalt(salt);
         return user;
     }
 
     private void setErrorAndRedirect(HttpServletRequest req, HttpServletResponse resp, String message) throws IOException {
         req.setAttribute("errorAdd", "<div class=\"alert alert-danger\">\n <strong>Erreur d'enregistrement!</strong> " + message + " Veuillez réessayer.\n</div>");
-        resp.sendRedirect("ajout-utilisateur");
+        resp.sendRedirect("gestions-utilisateurs");
     }
 
     private void setSuccessAndRedirect(HttpServletRequest req, HttpServletResponse resp, String message) throws IOException {

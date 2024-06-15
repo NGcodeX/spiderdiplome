@@ -352,8 +352,8 @@
 				<a class="btn btn-default" onclick="printForm()"><i class="fa fa-print"></i> Print User</a>
 
 				<div class="panel panel-default">
-					<form action="editer-utilisateur" class="no-margin"
-						  method="post">
+					<form action="editer-utilisateur" class="no-margin" id="formValidate1" data-validate="parsley"
+						  novalidate method="post">
 						<div class="panel-heading">
 							User General Information (Add) votre initial est: CM-${user.getMatricule()}
 						</div>
@@ -363,7 +363,7 @@
 									<div class="form-group has-success">
 										<label class="control-label">Status <span
 												class="label label-warning">account</span></label>
-										<select name="status" class="form-control has-success">
+										<select name="statuss" required class="form-control has-success">
 											<c:choose>
 												<c:when test="${userToEdit.getStatut() == 1}">
 													<option selected>Actif</option>
@@ -381,7 +381,7 @@
 									<div class="form-group has-success">
 										<label class="control-label">Role <span
 												class="label label-warning">account</span></label>
-										<select name="role" class="form-control has-success">
+										<select required name="roless" class="form-control has-success">
 											<option selected>${userToEdit.getRole()}</option>
 											<option>candidat</option>
 											<option>autoritesignataire</option>
@@ -404,7 +404,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label class="control-label">First Name </label>
-										<input type="text" name="firstName" placeholder="First Name"
+										<input required type="text" name="firstNames" placeholder="First Name"
 											   class="form-control input-sm" data-required="true"
 											   value="${userToEdit.getNom()}">
 									</div><!-- /form-group -->
@@ -412,7 +412,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label class="control-label">Last Name</label>
-										<input type="text" name="lastName" placeholder="Last Name"
+										<input required type="text" name="lastNames" placeholder="Last Name"
 											   class="form-control input-sm" data-required="true"
 											   value="${userToEdit.getPrenom()}">
 									</div><!-- /form-group -->
@@ -423,7 +423,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label class="control-label">Telephone ou E-mail (Du tuteur Legal)</label>
-										<input type="text" id="phone" name="phoneEmail" placeholder="Username"
+										<input required type="text" id="phone" name="phoneEmails" placeholder="Username"
 											   class="form-control input-sm" data-required="true"
 											   data-minlength="8" value="${userToEdit.getPhone()}">
 									</div>
@@ -441,13 +441,13 @@
 
 							<div class="form-group">
 								<label class="control-label">Matricule (Optional) </label>
-								<input type="text" name="matricule" placeholder="username"
+								<input required type="text" name="matricules" placeholder="username"
 									   class="form-control input-sm" data-required="true"
 									   value="${userToEdit.getMatricule()}">
 							</div><!-- /form-group -->
 							<div class="form-group">
 								<label class="control-label">New PassPassword (Optional)</label>
-								<input type="password" name="password" placeholder="Password"
+								<input type="password" name="passwords" placeholder="Password"
 									   class="form-control input-sm" id="password"
 									   data-required="true" data-minlength="8">
 							</div>
@@ -459,7 +459,7 @@
 
 									form.addEventListener('submit', function (e) {
 										// Sélectionner le champ de mot de passe par son nom
-										var password = document.querySelector('input[name="password"]');
+										var password = document.querySelector('input[name="passwords"]');
 
 										// Vérifier si la longueur du mot de passe est inférieure à 8 caractères
 										if (password.value.length < 8) {

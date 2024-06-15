@@ -67,7 +67,9 @@ public class ForgotPasswordServlet extends HttpServlet{
 
         String token = AuthTokenGenerator.generateToken();
         String resetLink = generateResetLink(request, token);
+        System.out.println("Lien generer Forgot password: " + resetLink);
         int code = generateRandomCode();
+        System.out.println("Code cours mobile: " + code);
 
         setupSessionAttributes(request, utilisateur, token, code);
 

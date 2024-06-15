@@ -37,6 +37,7 @@ public class DashboardServlet extends HttpServlet {
 
             switch (utilisateur.getRole()) {
                 case "superadmin":
+                    session.setAttribute("autoritessignataire", utilisateurDAO.findByRole("autoritesignataire"));
                     session.setAttribute("users", utilisateurDAO.readAll());
                     session.setAttribute("universite", universiteDAO.findAll());
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/v1/data/secure/superadmin-area/dashboard.jsp").forward(req, resp);

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "ViewUserServlet", value = "/Voir-utilisateur", description = "View user")
+@WebServlet(name = "ViewUserServlet", value = "/voir-utilisateur", description = "View user")
 public class ViewUserServlet extends HttpServlet {
 
     private UtilisateurDAOImpl utilisateurDAO;
@@ -29,26 +29,33 @@ public class ViewUserServlet extends HttpServlet {
         if (session != null && session.getAttribute("user") != null) {
             Utilisateur utilisateur = (Utilisateur) session.getAttribute("user");
 
-            switch (utilisateur.getRole()) {
-                case "superadmin":
-                    req.setAttribute("users", utilisateurDAO.readAll());
-                    this.getServletContext().getRequestDispatcher("/WEB-INF/views/v1/data/secure/superadmin-area/all-users.jsp").forward(req, resp);
-                    break;
-                case "user":
-                    resp.sendRedirect("userPage.jsp");
-                    break;
-                default:
-                    resp.sendRedirect("otherPage.jsp");
-                    break;
+            if ("superadmin".equals(utilisateur.getRole())) {
+                String matricule = req.getParameter("matricule");
+
+                // Validate the matricule parameter
+                if (matricule == null || matricule.isEmpty()) {
+                    req.setAttribute("error", "Invalid matricule");
+                    this.getServletContext().getRequestDispatcher("/WEB-INF/views/error404.jsp").forward(req, resp);
+                    return;
+                }
+
+                Utilisateur userToView = utilisateurDAO.findByMatricule(matricule);
+
+                // Check if the user exists
+                if (userToView == null) {
+                    req.setAttribute("error", "User not found");
+                    this.getServletContext().getRequestDispatcher("/WEB-INF/views/error.jsp").forward(req, resp);
+                    return;
+                }
+
+                req.setAttribute("voirUtilisateur", userToView);
+                this.getServletContext().getRequestDispatcher("/WEB-INF/views/v1/data/secure/superadmin-area/view-user.jsp").forward(req, resp);
+            } else {
+                resp.sendRedirect("userPage.jsp");
             }
         } else {
             this.getServletContext().getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Traitement de la requête POST
     }
 
     @Override

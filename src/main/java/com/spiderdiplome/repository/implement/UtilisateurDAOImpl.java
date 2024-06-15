@@ -136,38 +136,29 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
         return utilisateurs;
     }
 
-    @Override
-    public void update(Utilisateur utilisateur) {
-        String sql = "UPDATE utilisateurs SET nom = ?, prenom = ?, email = ?, phone = ?, matricule = ?, motdepasse = ?, role = ?, dateinscription = ?, statut = ?, datecreation = ?, derniereconnexion = ?, datemodification = ?, datenaissance = ?, genre = ?, photoprofil = ?, bio = ?, adresse = ?, salt = ? WHERE id = ?";
+@Override
+public void update(Utilisateur utilisateur) {
+    String sql = "UPDATE utilisateurs SET nom = ?, prenom = ?, phone = ?, matricule = ?, motdepasse = ?, role = ?, statut = ?, salt = ?, email = ? WHERE id = ?";
 
-        try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+    try (Connection connection = DatabaseConnection.getConnection();
+         PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setString(1, utilisateur.getNom());
-            statement.setString(2, utilisateur.getPrenom());
-            statement.setString(3, utilisateur.getEmail());
-            statement.setString(4, utilisateur.getPhone());
-            statement.setString(5, utilisateur.getMatricule());
-            statement.setString(6, utilisateur.getMotDePasse());
-            statement.setString(7, utilisateur.getRole());
-            statement.setTimestamp(8, utilisateur.getDateInscription());
-            statement.setInt(9, utilisateur.getStatut());
-            statement.setTimestamp(10, utilisateur.getDateCreation());
-            statement.setTimestamp(11, utilisateur.getDerniereConnexion());
-            statement.setTimestamp(12, utilisateur.getDateModification());
-            statement.setDate(13, new java.sql.Date(utilisateur.getDateNaissance().getTime()));
-            statement.setString(14, utilisateur.getGenre());
-            statement.setString(15, utilisateur.getPhotoProfil());
-            statement.setString(16, utilisateur.getBio());
-            statement.setString(17, utilisateur.getAdresse());
-            statement.setString(18, utilisateur.getSalt());
-            statement.setInt(19, utilisateur.getId());
+        statement.setString(1, utilisateur.getNom());
+        statement.setString(2, utilisateur.getPrenom());
+        statement.setString(3, utilisateur.getPhone());
+        statement.setString(4, utilisateur.getMatricule());
+        statement.setString(5, utilisateur.getMotDePasse());
+        statement.setString(6, utilisateur.getRole());
+        statement.setInt(7, utilisateur.getStatut());
+        statement.setString(8, utilisateur.getSalt());
+        statement.setString(9, utilisateur.getEmail());
+        statement.setInt(10, utilisateur.getId());
 
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de la mise à jour de l'utilisateur : " + e.getMessage());
-        }
+        statement.executeUpdate();
+    } catch (SQLException e) {
+        System.err.println("Erreur lors de la mise à jour de l'utilisateur : " + e.getMessage());
     }
+}
 
     @Override
     public void delete(int id) {

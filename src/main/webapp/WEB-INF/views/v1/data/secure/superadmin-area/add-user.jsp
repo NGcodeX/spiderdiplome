@@ -374,7 +374,7 @@
 										<label class="control-label">Status <span
 												class="label label-warning">account</span> <span
 												class="label label-danger">required</span></label>
-										<select name="status" class="form-control has-success">
+										<select required name="status" class="form-control has-success">
 											<option></option>
 											<option>Actif</option>
 											<option>Inactif</option>
@@ -400,7 +400,7 @@
                                         <label class="control-label">Role <span
                                                 class="label label-warning">account</span> <span
                                                 class="label label-danger">required</span></label>
-                                        <select name="role" class="form-control has-success">
+                                        <select required name="role" class="form-control has-success">
                                             <option></option>
                                             <option>candidat</option>
                                             <option>autoritesignataire</option>
@@ -438,7 +438,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label class="control-label">First Name </label>
-										<input type="text" required name="firstName" placeholder="First Name"
+										<input required type="text" required name="firstName" placeholder="First Name"
 											   class="form-control input-sm" data-required="true"
 											   oninput="validateInput(this)">
 									</div><!-- /form-group -->
@@ -446,7 +446,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label class="control-label">Last Name</label>
-										<input type="text" required name="lastName" placeholder="Last Name"
+										<input required type="text" required name="lastName" placeholder="Last Name"
 											   class="form-control input-sm" data-required="true"
 											   oninput="validateInput(this)">
 									</div><!-- /form-group -->
@@ -466,7 +466,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
                                         <label class="control-label">Telephone ou E-mail (Du tuteur Legal)</label>
-                                        <input type="text" id="phone" name="phoneEmail" required placeholder="Username"
+                                        <input required type="text" id="phone" name="phoneEmail" required placeholder="Username"
                                                class="form-control input-sm" data-required="true"
                                                data-minlength="8">
                                     </div>
@@ -491,7 +491,7 @@
 
 							<div class="form-group">
 								<label class="control-label">Matricule <span class="label label-danger">required</span></label>
-								<input type="text" required name="matricule" placeholder="username"
+								<input required type="text" name="matricule" placeholder="username"
 									   class="form-control input-sm" data-required="true"
 									   oninput="validateMatriculeInput(this)">
 							</div><!-- /form-group -->
@@ -511,7 +511,7 @@
 								<label class="control-label">Password</label>
 								<input type="password" required name="password" placeholder="Password"
 									   class="form-control input-sm" id="password"
-									   data-required="true" data-minlength="8">
+									   data-minlength="8">
 							</div>
 							<script>
 								// Attacher l'écouteur d'événement après le chargement complet du DOM
@@ -542,7 +542,7 @@
 							
 							<div class="form-group">
 								<label class="label-checkbox inline">
-									<input type="checkbox" required name="agreement" data-required="true">
+									<input  type="checkbox" required name="agreement" data-required="true">
 									<span class="custom-checkbox"></span>
 									I accept the user agreement
 								</label>
@@ -550,9 +550,9 @@
 						</div>
 						<div class="panel-footer text-right">
 							<button type="submit" class="btn btn-success"><i class="fa fa-download"></i> Add User</button>
-							<button type="button" class="btn btn-danger" id="cancelButton">
+							<a href="gestions-utilisateurs"> <button type="button" class="btn btn-danger" id="cancelButton">
 								<i class="fa fa-times"></i> Cancel
-							</button>
+							</button></a>
 						</div>
 					</form>
 					<script>

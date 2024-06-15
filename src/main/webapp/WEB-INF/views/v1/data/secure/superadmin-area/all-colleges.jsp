@@ -342,36 +342,28 @@
 						<table class="table table-striped" id="dataTable">
 							<thead>
 							<tr>
-								<th>ID</th>
 								<th>Name</th>
 								<th>Location</th>
 								<th>Description</th>
-								<th>Date</th>
-								<th>Status</th>
 								<th>Website</th>
 								<th>Contact</th>
 								<th>Postal</th>
-								<th>Deadline</th>
 								<th>Type</th>
+								<th>Status</th>
 								<th>Action</th>
-								<th>-</th>
 							</tr>
 							</thead>
 							<tbody>
 							<c:forEach var="universite" items="${universities}">
 								<tr>
-									<td>${universite.id}</td>
 									<td>${universite.nom}</td>
 									<td>${universite.emplacement}</td>
 									<td>${universite.description}</td>
-									<td><fmt:formatDate value="${universite.date_ajoutee}" pattern="yyyy-MM-dd"/></td>
-									<td>${universite.statut}</td>
 									<td>${universite.site_web}</td>
 									<td>${universite.numero_contact}</td>
 									<td>${universite.adresse_postale}</td>
-									<td><fmt:formatDate value="${universite.date_limite_application}"
-														pattern="yyyy-MM-dd"/></td>
 									<td>${universite.type_universite}</td>
+									<td>${universite.statut}</td>
 									<td>
 										<a href="view-college.jsp"><i class="fa fa-info-circle"></i></a>
 										<a href="edit-college.jsp"><i class="fa fa-edit"></i></a>
@@ -379,7 +371,6 @@
 										<a href="#"><i class="fa fa-sign-in"></i></a>
 										<i class="fa fa-trash-o"></i>
 									</td>
-									<td>confirm</td>
 								</tr>
 							</c:forEach>
 							</tbody>

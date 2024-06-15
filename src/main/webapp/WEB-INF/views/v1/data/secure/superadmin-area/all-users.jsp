@@ -340,15 +340,7 @@
                 <li class="active">Utilisateurs</li>
             </ul>
         </div><!-- /breadcrumb-->
-        <div class="padding-md">
-            <div class="row">
-                <div class="col-md-3 col-sm-4">
-                    ${errorAdd}
-                    ${successAdd}
-                </div>
-            </div>
-        </div>
-        <div class="padding-md">
+        <div class="main-header clearfix">
             <a href="ajout-utilisateur" class="btn btn-success"><i class="fa fa-plus"></i> Ajouter Utilisateur</a>
             <a class="btn btn-default" onclick="printTable()"><i class="fa fa-print"></i> Print</a>
             <script>
@@ -365,6 +357,36 @@
             </script>
             <a class="btn btn-danger"><i class="fa fa-download"></i> Export</a>
             <a class="btn btn-primary"><i class="fa fa-upload"></i> Import</a>
+            <ul class="page-stats">
+                <li>
+                    <div class="value">
+                        <span>Faire un</span>
+                        <h4><a class="btn btn-success"><i class="fa fa-money fa-lg"></i> Depot</a></h4>
+                    </div>
+                </li>
+                <li>
+                    <div class="value">
+                        <span>Faire un</span>
+                        <h4><a class="btn btn-success"><i class="fa fa-money fa-lg"></i> Retrait</a></h4>
+                    </div>
+                </li>
+                <li>
+                    <div class="value">
+                        <span>Balance Actuelle</span>
+                        <h4><strong id="currentBalance">500000</strong> CFA</h4>
+                    </div>
+                </li>
+            </ul><!-- /page-stats -->
+        </div><!-- /main-header -->
+        <div class="padding-md">
+            <div class="row">
+                <div class="col-md-3 col-sm-4">
+                    ${errorAdd}
+                    ${successAdd}
+                </div>
+            </div>
+        </div>
+        <div class="padding-md">
             <div class="panel panel-default table-responsive">
                 <div class="panel-heading">
                     Tous les utilisateurs
@@ -380,9 +402,9 @@
                             <th>Mobile</th>
                             <th>E-mail</th>
                             <th>Join-Date</th>
+                            <th>Wallet</th>
                             <th>Status</th>
                             <th>Action</th>
-                            <th>-</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -394,6 +416,7 @@
                                 <th>${users.phone}</th>
                                 <td>${users.email}</td>
                                 <td><fmt:formatDate value="${users.dateInscription}" pattern="yyyy-MM-dd"/></td>
+                                <td>500</td>
                                 <c:choose>
                                     <c:when test="${users.statut == 1}">
                                         <th><span class="label label-success">Actif</span></th>
@@ -411,12 +434,11 @@
                                     <a href="#" onclick="signInUser('${users.matricule}')"><i class="fa fa-sign-in"></i></a>
                                     <i class="fa fa-trash-o" onclick="deleteUser('${users.matricule}')"></i>
                                 </td>
-                                <td>Secure</td>
                             </tr>
                         </c:forEach>
                         <script>
                             function viewUser(matricule) {
-                                window.location.href = 'Voir-utilisateur?matricule=' + encodeURIComponent(matricule);
+                                window.location.href = 'voir-utilisateur?matricule=' + encodeURIComponent(matricule);
                             }
 
                             function editUser(matricule) {

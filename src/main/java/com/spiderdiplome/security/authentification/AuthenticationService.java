@@ -123,7 +123,7 @@ public class AuthenticationService {
             newUser.setNom(firstname);
             newUser.setPrenom(lastname);
             newUser.setPhone(phone);
-            newUser.setEmail("default@"+phone);
+            newUser.setEmail("default@"+salt);
             newUser.setStatut(1);
             newUser.setMotDePasse(hashedPassword);
             newUser.setSalt(salt);
@@ -132,7 +132,7 @@ public class AuthenticationService {
             newUser.setNom(firstname);
             newUser.setPrenom(lastname);
             newUser.setEmail(email);
-            newUser.setPhone("237"+email);
+            newUser.setPhone("237"+salt);
             newUser.setStatut(1);
             newUser.setMotDePasse(hashedPassword);
             newUser.setSalt(salt);

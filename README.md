@@ -49,6 +49,7 @@ Our team has adopted an Agile approach with Scrum methodology for this project. 
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/fkfk.PNG?raw=true)
 
 ## Getting Started
+
 To get started with the Student Registration Portal, follow these steps:
 1. Clone the project repository.
 2. Install any necessary dependencies.

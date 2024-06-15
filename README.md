@@ -27,6 +27,7 @@ Welcome to our Student Registration Portal project! This document serves as a gu
 The University Student Registration Portal is an innovative web-based platform designed to simplify and streamline the process of university applications for prospective students. This portal aims to provide a user-friendly interface where students can easily register, fill out application forms, upload necessary documents, and track the status of their applications to specific university. For university administrators, the portal offers efficient tools to manage and review global applications, ensuring a smooth and organized admissions process in Cameroon.
 
 # Agile Approach --> [Scrum Methodology](https://github.com/orgs/NGcodeX/projects/8/views/1)
+
 Our team has adopted an Agile approach with Scrum methodology for this project. Agile emphasizes iterative development, collaboration, and flexibility, allowing us to respond to changes and deliver value to stakeholders continuously. Scrum is a framework within Agile that organizes work into short iterations called sprints, typically lasting 2-4 weeks. Here's how we're implementing Agile and Scrum in our project:
 
 ![IMAGE](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/45.PNG?raw=true)

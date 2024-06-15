@@ -36,7 +36,7 @@ the security manager in a school registration portal is responsible for ensuring
 - Provide detailed reports with recommendations for remediation and improvement.
 
 ### 4. Data Encryption and Backup Solutions (msqldump)
-- Implement encryption algorithms to protect sensitive data at rest and in transit.
+- Implement encrypt algorithms to protect sensitive data at rest and in transit.
 - Provide secure backup and recovery mechanisms to safeguard against data loss.
 
 

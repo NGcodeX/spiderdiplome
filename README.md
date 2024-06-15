@@ -17,7 +17,7 @@ the security manager in a school registration portal is responsible for ensuring
   ![image](https://github.com/NGcodeX/spiderdiplome/blob/belinda_branch/WhatsApp%20Image%202024-06-14%20at%203.34.04%20PM.jpeg?raw=true)
   ![image](https://github.com/NGcodeX/spiderdiplome/blob/belinda_branch/WhatsApp%20Image%202024-06-14%20at%203.46.33%20PM.jpeg?raw=true)
 
-### 3. Network Security 
+### 3. Network Security management 
 - Configuring and maintaining firewalls, intrusion detection/prevention systems, and virtual private networks (VPNs) to secure the school's network infrastructure.
 - Monitoring network traffic and detecting any suspicious activities or potential threats.
   ![image](https://github.com/NGcodeX/spiderdiplome/blob/belinda_branch/WhatsApp%20Image%202024-06-14%20at%203.46.33%20PM.jpeg?raw=true)

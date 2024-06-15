@@ -33,6 +33,7 @@ Our team has adopted an Agile approach with Scrum methodology for this project. 
 ![IMAGE](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/45.PNG?raw=true)
 
 ### Scrum Methodology:
+
 1. **Sprints:** We organize our work into sprints, with each sprint focusing on delivering a set of features or improvements.
 2. **Scrum Team:** Our team consists of a Scrum Master, responsible for facilitating the Scrum process, a Product Owner, representing the stakeholders and defining project requirements, and Development Team members, who collaborate to deliver the product.
 3. **Daily Stand-ups:** We hold daily stand-up meetings to discuss progress, challenges, and plans for the day, fostering communication and alignment within the team.

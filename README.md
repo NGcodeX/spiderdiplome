@@ -19,6 +19,7 @@
 | <img src="https://avatars.githubusercontent.com/u/120027323?v=4" alt="" width="100" height="100"> | Zebs Haupur | Java Developer | I m in charge | [Backend Link prod](https://github.com/NGcodeX/spiderdiplome/tree/master) |
 
 # Student Registration Portal
+
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/9.PNG?raw=true)
 
 # Introduction

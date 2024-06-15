@@ -51,6 +51,7 @@ We welcome feedback from stakeholders, users, and the development community. If 
 
 ## Security Hashing Algorithme
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/55.PNG?raw=true)
+
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/1.PNG?raw=true)
 
 ## License

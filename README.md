@@ -6,13 +6,13 @@
 ## Groupe members Goupe-9 OOA:
 ## View the [Scrum Board here](https://github.com/orgs/NGcodeX/projects/8/views/1)
 # project is managed by STUDENT:
-| Student | Name | Post | Details |
-| -| - | - | - |
-| <img src="https://avatars.githubusercontent.com/u/71899547?v=4" alt="" width="100" height="100"> | Fanta Lateefah | Scrum Master | I m in charge |
-| <img src="https://avatars.githubusercontent.com/u/170107001?v=4" alt="" width="100" height="100"> | paguem belinda |security manager |I am in charge |
-| <img src="https://avatars.githubusercontent.com/u/167518864?v=4" alt="" width="100" height="100"> |Mbwa madian | Tester|I am in charge |
-| <img src="https://avatars.githubusercontent.com/u/153538511?v=4" alt="" width="100" height="100"> | cindy melo | front end developer| I am in charge |
-| <img src="https://avatars.githubusercontent.com/u/120027323?v=4" alt="" width="100" height="100"> | Zebs Haupur | Java Developer | I m in charge |
+| Student | Name | Role | Details | BranchLink |
+| -| - | - | - | - |
+| <img src="https://avatars.githubusercontent.com/u/71899547?v=4" alt="" width="100" height="100"> | Fanta Lateefah | Scrum Master | I m in charge | [Scrum-meeting](https://github.com/orgs/NGcodeX/projects/8/views/3) |
+| <img src="https://avatars.githubusercontent.com/u/170107001?v=4" alt="" width="100" height="100"> | paguem belinda |security manager |I am in charge | [Belinda-Security link](https://github.com/NGcodeX/spiderdiplome/tree/belinda_branch) |
+| <img src="https://avatars.githubusercontent.com/u/167518864?v=4" alt="" width="100" height="100"> |Mbwa madian | Tester|I am in charge | [Madian-Tester link](https://github.com/NGcodeX/spiderdiplome/tree/madian_branch) |
+| <img src="https://avatars.githubusercontent.com/u/153538511?v=4" alt="" width="100" height="100"> | cindy melo | front end developer| I am in charge | [Frontend-View user](https://github.com/NGcodeX/spiderdiplome/tree/cindy_branch) |
+| <img src="https://avatars.githubusercontent.com/u/120027323?v=4" alt="" width="100" height="100"> | Zebs Haupur | Java Developer | I m in charge | [Backend Link prod](https://github.com/NGcodeX/spiderdiplome/tree/master) |
 
 # Student Registration Portal
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/9.PNG?raw=true)

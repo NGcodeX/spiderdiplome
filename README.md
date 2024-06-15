@@ -31,7 +31,7 @@ the security manager in a school registration portal is responsible for ensuring
 - Enables the creation and management of user accounts, roles, and permissions.
   [image](https://github.com/NGcodeX/spiderdiplome/blob/belinda_branch/security%20architecture%20work.jpg?raw=true)
 
-### 2. Vulnerability scanning and Penetration Testing Tool
+### 2. Vulnerability scanning and Penetration Testing Tools
 - Perform simulated attacks to test the effectiveness of security controls and identify weaknesses.
 - Provide detailed reports with recommendations for remediation and improvement.
 

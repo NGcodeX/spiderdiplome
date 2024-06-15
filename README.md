@@ -23,6 +23,7 @@ the security manager in a school registration portal is responsible for ensuring
   ![image](https://github.com/NGcodeX/spiderdiplome/blob/belinda_branch/WhatsApp%20Image%202024-06-14%20at%203.46.33%20PM.jpeg?raw=true)
 
 
+
 ## Tools of a Security Manager
 
 ### 1. Identifying and Accessing Management (IAM) System

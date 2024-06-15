@@ -43,6 +43,7 @@ Our team has adopted an Agile approach with Scrum methodology for this project. 
 ![IMAGE](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/10.PNG?raw=true)
 
 ### Black-Box Testing --> Load testing with Jmeter (User Log 1000)
+
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/gggg.PNG?raw=true)
 
 ![Image](https://github.com/NGcodeX/School-registration-group9/blob/frond-view/image/fkfk.PNG?raw=true)

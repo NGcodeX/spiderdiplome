@@ -3,7 +3,6 @@
 the security manager in a school registration portal is responsible for ensuring the overall security and integrity of the system.I as the security manager i am in charge of overseeing the implementation and maintenance of various security measures to protect the sensitive data of students, faculty, and staff. my responsibilities includes:
 
 ## Responsibilities
-
 ### 1.access control  Management
 - Implementing and managing the user authentication mechanisms, such as login credentials, multi-factor authentication, and role-based access controls.
 - Defining and enforcing user permissions and privileges based on their roles and responsibilities within the school.
